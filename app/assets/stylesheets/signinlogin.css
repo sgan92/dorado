@@ -1,0 +1,98 @@
+.login {
+  background-color: white;
+  position: relative;
+  top: 200px;
+  padding: 20px;
+  display: block;
+  width: 250px;
+  height: 435px;
+  margin: auto;
+  text-align: center;
+  z-index: 10;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.login:hover{
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.login img {
+  position: relative;
+  margin-bottom: -70px;
+}
+
+.login input {
+  position: relative;
+  top: 90px;
+  padding: 10px 30px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border-style: none;
+  left: 13%;
+  border: 1px solid #edeeee;
+}
+
+.login li {
+  font-size: 10px;
+  position: relative;
+  top: 140px;
+  color: #bb5237;
+  padding: 1px;
+}
+
+.login button {
+  border: none;
+  padding: 7px 86px;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.7;
+  background-color: #e57c4f;
+  top: 120px;
+  cursor: pointer;
+}
+
+.login a {
+  padding: 10px;
+  color: black;
+  font-size: 10px;
+  position: relative;
+  top: 100px;
+  cursor: pointer;
+}
+
+.already {
+  position: absolute;
+  display: block;
+  top: 485px;
+  width: 250px;
+  right: 0px;
+  padding: 20px;
+  height: 30px;
+  background: white;
+}
+
+.already a {
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.already a:hover{
+  color: #bb5237;
+  letter-spacing: 1px;
+}
+
+#guest {
+  font-size: 12px;
+  padding: 0px;
+  width: 190px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}

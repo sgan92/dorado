@@ -1,0 +1,36 @@
+/*
+*=require_tree
+*=require_self
+*/
+
+html, body, section, article, h1, h2, p, a, ul{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  list-style-type: none;
+  color: inherit;
+  background: transparent;
+  -webkit-tap-highlight-color:transparent;
+  user-select: none;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: asset-url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body input:focus{
+  outline: none;
+}
+
+body textarea:focus{
+  outline: none;
+}
+
+body button:focus{
+  outline: none;
+}

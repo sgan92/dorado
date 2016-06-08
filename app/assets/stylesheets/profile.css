@@ -1,0 +1,103 @@
+.userImages {
+  position: absolute;
+  clear: both;
+  display: block;
+  left: 20%;
+  height: 100%;
+  padding-right: 100%;
+  overflow: scroll;
+}
+
+.profileInfo {
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.profileInfo h1 {
+  font-size: 36px;
+  font-weight: lighter;
+  position: relative;
+  left: 52%;
+}
+
+.profileInfo h2 {
+  font-size: 16px;
+  float: left;
+  position: relative;
+  left: 52%;
+  padding-left: 5px;
+}
+
+.profileInfo h3 {
+  font-size: 14px;
+  left: 50.5%;
+  position: relative;
+  padding-left: 20px;
+  margin: 0;
+  float: left;
+}
+
+.profileInfo p {
+  position: relative;
+  font-style: italic;
+  left: 53%;
+}
+
+.profileInfo button {
+  border: none;
+  color: black;
+  background: #f5f5f5;
+  padding: 2px 14px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  border-radius: 10%;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 145px;
+  left: 400px;
+}
+
+.userImages ul{
+  padding: 10px;
+  float: left;
+  margin-top: 50px;
+  width: 1020px;
+  height: 100%;
+}
+
+.userImages li {
+  width: 320px;
+  margin: 10px;
+  float: left;
+  background: #000;
+  height: 320px;
+}
+
+.userImages li img:hover{
+  display: block;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.userImages li img{
+  width: auto;
+  height: 320px;
+
+}
+
+.profile {
+  position: relative;
+  top: 210px;
+  left: 30%;
+  width: 175px;
+  height: 175px;
+}
+
+.profile img {
+  width: 175px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -10;
+}

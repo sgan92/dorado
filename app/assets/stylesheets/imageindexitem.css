@@ -1,0 +1,124 @@
+.post {
+  background: white;
+  display: block;
+  height: auto;
+  width: 500px;
+  border: 15px solid white;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.post a {
+  font-weight: bolder;
+}
+
+#header {
+  display: block;
+  background: white;
+  position: relative;
+  padding: 10px 20px;
+}
+
+.post #username{
+  font-size: 16px;
+  font-weight: lighter;
+  top: -100px;
+  text-align: left;
+  color: #545454;
+}
+
+.post #username a {
+  position: relative;
+  left: -5%;
+  color: #cb8a3f;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.post #timestamps{
+  font-size: 12px;
+  font-weight: lighter;
+  margin-top: -16px;
+  color: #d1d1d1;
+  text-align: right;
+}
+
+.post img {
+  position: relative;
+  top: 10px;
+  height: auto;
+  width: auto;
+}
+
+.post #widthOver img  {
+  height: 500px;
+  width: auto;
+}
+
+.post  #widthUnder img  {
+  width: 500px;
+  height: auto;
+  max-height: 500px;
+}
+
+.post #blurb {
+  position: relative;
+  top: -10px;
+  border-bottom: 1px solid #f6f6f6;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #959595;
+}
+
+.post #blurb a {
+  position: relative;
+  left: -1%;
+  color: #cb8a3f;
+  padding: 0px;
+  margin-left: 15px;
+  font-size: 14px;
+  background: none;
+  opacity: 1;
+}
+
+.post #delete {
+
+  border: none;
+  background: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  top: -37px;
+  left: 83%;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+}
+
+
+.post #parent:hover #delete {
+  opacity: 0.7;
+  transition: visibility 0s, opacity 1s linear;
+}
+
+.post #likecontainer img{
+  border: none;
+  float: left;
+  background: white;
+  display: block;
+  padding-right: 10px;
+  margin-top: -18px;
+  margin-left: 8px;
+  z-index: 10;
+  height: 25px;
+  cursor: pointer;
+}
+
+.post #likecontainer {
+  position: relative;
+  font-size: 12px;
+  padding-bottom: 10px;
+  font-weight: lighter;
+}
