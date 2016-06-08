@@ -1,0 +1,12 @@
+#discover {
+  position: absolute;
+  background: white;
+  height: auto;
+  width: 500px;
+  border: 15px solid white;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 20px;
+  left: 36%;
+  top: -50%;
+}

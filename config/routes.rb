@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     resources :users, only: [:show]#, param: :username
     resource :follow, only: [:create, :destroy]
     resources :follows, only: [:index]
+
+    resource :user do
+      member do
+        get 'discover'
+      end
+    end
+
   end
 
 end

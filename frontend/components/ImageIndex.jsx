@@ -2,6 +2,7 @@ var React = require('react');
 var ImageStore = require('../stores/images');
 var ImageApiUtil = require('../util/image_api_util');
 var ImageIndexItem = require('./ImageIndexItem');
+var Discover = require('./Discover');
 var Link = require('react-router').Link;
 
 var ImageIndex = React.createClass({
@@ -34,6 +35,7 @@ var ImageIndex = React.createClass({
 
     return(
       <div className="Index">
+        <Discover />
         <ul>
           {posts}
         </ul>

@@ -1,7 +1,9 @@
 var SessionConstants = require('../constants/session_constants');
+var UserConstants = require('../constants/user_constants');
 var SessionApiUtil = require('../util/session_api_util');
 var SessionStore = require('../stores/session');
 var Dispatcher = require('../dispatcher/dispatcher');
+
 
 var SessionActions = {
 
@@ -15,6 +17,13 @@ var SessionActions = {
  removeCurrentUser: function () {
    Dispatcher.dispatch({
      actionType: SessionConstants.LOGOUT
+   });
+ },
+
+ receiveUsers: function(users){
+   Dispatcher.dispatch({
+     actionType: UserConstants.DISCOVER,
+     users: users
    });
  }
 

@@ -39,6 +39,18 @@ var UserApiUtil = {
         debugger;
       }
     });
+  },
+
+  discoverUsers: function(){
+    $.ajax({
+      type: "GET",
+      url: "api/user/discover",
+      success: function(users){
+        SessionActions.receiveUsers(users);
+      }, error: function(error){
+        debugger;
+      }
+    });
   }
 
 };
