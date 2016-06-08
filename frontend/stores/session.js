@@ -6,6 +6,7 @@ var UserConstants = require('../constants/user_constants');
 var SessionStore = new Store(Dispatcher);
 
 var _currentUser = {};
+var _users = {};
 var _currentUserHasBeenFetched = false;
 
 function _login(currentUser){
@@ -35,8 +36,12 @@ SessionStore.followUser = function(follow){
   _currentUser.followers[follow.follower.username] = true;
 };
 
-SessionStore.allFollows = function(follows){
+SessionStore.discoveredUsers = function(){
+  return _users;
+};
 
+SessionStore._setDiscovered = function(users){
+  _users = users;
 };
 
 SessionStore.__onDispatch = function(payload){
@@ -52,6 +57,10 @@ SessionStore.__onDispatch = function(payload){
       this.__emitChange();
       break;
     case UserConstants.UNFOLLOW:
+      this.__emitChange();
+      break;
+    case UserConstants.DISCOVER:
+      this._setDiscovered(payload.users.users);
       this.__emitChange();
       break;
   }

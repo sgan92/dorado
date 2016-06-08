@@ -1,5 +1,27 @@
 class Api::UsersController < ApplicationController
 
+  def discover
+
+    user_ids = []
+
+    users = User.limit(5).order("RANDOM()")
+
+    followings = {}
+    current_user.followings.each do |following|
+      followings[following.followee_id] = true
+    end
+
+    users.each do |user|
+      if !followings.key?(user.id)
+        user_ids.push(user.id)
+      end
+    end
+
+    @users = User.where(id: user_ids)
+    render "api/users/index"
+
+  end
+
   def show
     @user = User.find(params[:id])
   end
