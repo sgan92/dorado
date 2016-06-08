@@ -1,0 +1,53 @@
+
+.editProfile h2 {
+  padding: 10px 20px;
+  font-size: 16px;
+  position: relative;
+  margin-left: 135px;
+}
+
+.editProfile button, input {
+  border: none;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 35px;
+  padding-right: 20px;
+  float: left;
+}
+
+.editProfile input[type="text"]  {
+  cursor: default;
+  width: 350px;
+  margin-left: 5px;
+}
+
+.editProfile input[type="submit"]  {
+  position: absolute;
+  top: 180px;
+  left: 130px;
+  padding: 10px 20px;
+}
+
+label {
+  position: absolute;
+  left: 165px;
+  top: 110px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.editProfile input[type="file"]  {
+  display: none;
+}
+
+.editProfile button {
+  position: absolute;
+  top: 180px;
+  left: 230px;
+  padding: 10px 20px;
+}
