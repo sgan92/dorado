@@ -6,6 +6,7 @@ var UserApiUtil = require('../util/user_api_util');
 var FollowApiUtil = require('../util/follow_api_util');
 var SessionStore = require('../stores/session');
 var ModalStyle = require('./ModalStyle');
+var ImageComponent = require('./ImageComponent');
 
 var Modal = require("react-modal");
 
@@ -134,7 +135,11 @@ var Profile = React.createClass({
   render: function(){
 
     var images = this.state.images.map(function (image){
-        return (<li key={image.id}><img src={image.image_url}/></li>);
+        return (
+          <li key={image.id} onClick={this.showImageComponent}>
+            <img src={image.image_url}/>
+            <h3>{image.likes.length}♥ {image.comments.length}☁ </h3>
+          </li>);
     });
 
     var info = "";
