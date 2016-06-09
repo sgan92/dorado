@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resource :user do
       member do
         get 'discover'
+        get 'search'
       end
     end
 
