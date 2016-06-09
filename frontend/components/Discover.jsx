@@ -53,8 +53,8 @@ var Discover = React.createClass({
       if (this.state.users[Id].photo === ""){
         photo = window.profilePic
       } else {
-
-        photo = this.state.users[Id].profile_pic
+        debugger;
+        photo = this.state.users[Id].photo
       }
 
       var name = this.state.users[Id].first_name + " " +
