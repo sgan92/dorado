@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, length: { in: 3..15 }
 
-  has_attached_file :photo, default_url: ""
+  has_attached_file :photo, default_url: "", styles: { avatar: "175x175#"}
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token

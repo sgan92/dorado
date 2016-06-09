@@ -96,7 +96,6 @@
 }
 
 .profile img {
-  width: 175px;
   position: absolute;
   border-radius: 50%;
   z-index: -10;
