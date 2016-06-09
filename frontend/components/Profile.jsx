@@ -171,7 +171,6 @@ var Profile = React.createClass({
         blurb = this.state.user.profile_blurb;
       }
 
-      console.log(this.state.button);
       if (this.isCurrentUser()){
         this.button = "Edit Profile" ;
       } else if (this.state.button) {

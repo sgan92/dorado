@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionStore = require('../stores/session');
 var SessionApiUtil = require('../util/session_api_util');
+var Search = require('./Search');
 var Link = require('react-router').Link;
 
 var App = React.createClass({
@@ -54,7 +55,7 @@ var App = React.createClass({
     return(
       <header>
 
-
+        <Search />
           {include}
 
 
