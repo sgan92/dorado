@@ -10,11 +10,7 @@ class Api::ImagesController < ApplicationController
       following << followee.followee_id
     end
 
-    if following != []
-      @images = Image.where( user_id: following )
-    else
-      @images = only_self
-    end
+    @images = Image.where( user_id: following )
 
   end
 

@@ -8,7 +8,7 @@ var Link = require('react-router').Link;
 var ImageIndex = React.createClass({
 
   getInitialState: function(){
-    return ({ images: ImageStore.all() });
+    return ({ images: [] });
   },
 
   componentDidMount: function(){
@@ -16,12 +16,12 @@ var ImageIndex = React.createClass({
     this.listener = ImageStore.addListener(this.photosAdded);
   },
 
-  componentWillUnmount: function(){
-    this.listener.remove();
-  },
-
   photosAdded: function(){
     this.setState({ images: ImageStore.all() });
+  },
+
+  componentWillUnmount: function(){
+    this.listener.remove();
   },
 
   render: function(){
