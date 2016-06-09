@@ -44,6 +44,8 @@ var App = React.createClass({
               <div onClick={this.handleIndex}><img src={window.logo}/></div>
               <div onClick={this.handleIndex} className="logo"><img src={window.icon}/></div>
 
+              {search}
+
               <Link to={userLink}>
                 <h1>{SessionStore.currentUser().first_name}</h1>
               </Link>
@@ -57,7 +59,6 @@ var App = React.createClass({
     return(
       <header>
 
-        {search}
           {include}
 
 
