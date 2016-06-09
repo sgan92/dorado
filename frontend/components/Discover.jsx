@@ -27,9 +27,8 @@ var Discover = React.createClass({
   },
 
   followUser: function(userId){
-    FollowApiUtil.follow(userId);
+    FollowApiUtil.follow(userId, ImageApiUtil.fetchAllImages);
     followings[userId] = true;
-    ImageApiUtil.fetchAllImages();
     this.setState({ userFollowing: followings });
   },
 
