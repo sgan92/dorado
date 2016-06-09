@@ -217,7 +217,12 @@ var Profile = React.createClass({
           </div>
         );
       } else {
-        loading = <img src={window.loading} />;
+        loading = (
+          <div className="loading">
+            <img src={window.loading} />
+          </div>
+        );
+
       }
 
 
