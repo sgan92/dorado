@@ -67,7 +67,7 @@ var Search = React.createClass({
 
     return (
       <div className="searchBar">
-        <input type="text" onChange={this.searchUsers} placeholder="Search" />
+        <input type="text" onChange={this.searchUsers} placeholder="Search" value={this.state.searching}/>
         <ul>
           {results}
         </ul>
