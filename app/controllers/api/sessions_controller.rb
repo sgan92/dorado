@@ -4,8 +4,8 @@ class Api::SessionsController < ApplicationController
 
     if auth_hash
       @user = User.find_or_create_from_auth_hash(auth_hash)
-      self.current_user = @user
-      redirect_to '/'
+      login_user!(@user)
+      redirect_to "/"
     else
       @user = User.find_by_credentials(
         params[:user][:username],

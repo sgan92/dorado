@@ -94,7 +94,7 @@ var Login = React.createClass({
         <input type="password" onChange={this.pwChange} placeholder="password" />
         <button onClick={this.handleSubmit}>⊚</button>
         <button onClick={this.guestSubmit} id="guest">GUEST</button>
-
+        <a href= "/auth/twitter"> Twitter! </a>
         {this.baseErrors()}
 
         <div className ="already">
