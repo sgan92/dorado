@@ -8,7 +8,7 @@ json.followings @user.followings do |following|
 end
 
 json.images @user.images.each do |image|
-  json.image_url image.photo.url(:profile)
+  json.image_url image.photo.url(:post)
   json.id  image.id
 end
 
