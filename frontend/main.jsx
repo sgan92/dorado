@@ -62,7 +62,7 @@ var routes = (
     <Route path="/signup" component={ Signup } onEnter={ _ensureLoggedOut }/>
     <Route path="/new" component={ ImageForm } onEnter={ _ensureLoggedIn }/>
     <Route path="/index" component={ ImageIndex } onEnter={ _ensureLoggedIn }/>
-    <Route path="/:userId" component= { Profile } />
+    <Route path="/:username" component= { Profile } />
 
   </Route>
 );

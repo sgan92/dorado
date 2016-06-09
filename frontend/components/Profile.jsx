@@ -28,9 +28,9 @@ var Profile = React.createClass({
   },
 
   componentDidMount: function(){
-    this.userId = this.props.params.userId;
+    this.username = this.props.params.username;
 
-    ImageApiUtil.fetchByUser(this.userId);
+    ImageApiUtil.fetchByUser(this.username);
 
     this.imageListener = ImageStore.addListener(this.profile);
     this.userListener = ImageStore.addListener(this.setUser);
@@ -38,7 +38,7 @@ var Profile = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps){
-    ImageApiUtil.fetchByUser(newProps.params.userId);
+    ImageApiUtil.fetchByUser(newProps.params.username);
   },
 
   profile: function(){

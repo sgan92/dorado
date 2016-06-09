@@ -33,7 +33,7 @@ var App = React.createClass({
   render: function(){
     var include;
     var search;
-    var userLink = "/" + SessionStore.currentUser().id;
+    var userLink = "/" + SessionStore.currentUser().username;
 
     if (SessionStore.isUserLoggedIn()){
       search = <Search />;
