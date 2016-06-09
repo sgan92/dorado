@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
 
   def search
     if params[:search].present?
-      @users = User.where("username ~ ?", params[:search])
+      @users = User.where("LOWER(username) ~ LOWER(?)", params[:search])
     else
       @users = User.none
     end
