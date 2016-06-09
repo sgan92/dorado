@@ -6,7 +6,7 @@ var UserApiUtil = require('../util/user_api_util');
 var FollowApiUtil = require('../util/follow_api_util');
 var SessionStore = require('../stores/session');
 var ModalStyle = require('./ModalStyle');
-var ImageComponent = require('./ImageComponent');
+var ProfileImageIndex = require('./ProfileImageIndex');
 
 var Modal = require("react-modal");
 
@@ -134,15 +134,8 @@ var Profile = React.createClass({
 
   render: function(){
 
-    var images = this.state.images.map(function (image){
-        return (
-          <li key={image.id} onClick={this.showImageComponent}>
-            <img src={image.image_url}/>
-            <h3>{image.likes.length}♥ {image.comments.length}☁ </h3>
-          </li>);
-    });
-
     var info = "";
+    var images;
     var numPosts = 0;
     var profileImg = "";
     var grammar;
@@ -154,6 +147,10 @@ var Profile = React.createClass({
     if (this.state.user){
 
       if (this.state.user.images){
+
+        images = <ProfileImageIndex images = {this.state.images} />;
+
+
         numPosts = this.state.user.images.length;
 
         if (numPosts === 1){
@@ -163,6 +160,7 @@ var Profile = React.createClass({
         }
       }
 
+
       if (this.state.user.id === this.currentUser.id && this.state.photoUrl !== null && this.state.photoUrl !== "") {
         profileImg = this.currentUser.profile_pic;
       } else if ( this.state.user.profile_pic !== null && this.state.user.profile_pic !== "" ){
@@ -170,7 +168,6 @@ var Profile = React.createClass({
       } else {
         profileImg = window.profilePic;
       }
-
 
 
       if (this.state.user.id === this.currentUser.id && this.state.blurb !== "") {
@@ -247,9 +244,9 @@ var Profile = React.createClass({
           </div>
 
           {info}
-          <ul>
-            {images}
-          </ul>
+
+          {images}
+
         </div>
 
           <Modal
