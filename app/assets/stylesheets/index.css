@@ -24,6 +24,7 @@
   background: white;
   padding: 25px 30px;
   opacity: 0.6;
+  box-shadow: 3px 3px 0px #888888;
   transition: visibility 0s, opacity 0.5s linear;
 }
 

@@ -25,7 +25,7 @@ var UserApiUtil = {
     });
   },
 
-  updateUser: function(data){
+  updateUser: function(data, cb){
     $.ajax({
       type: "PATCH",
       url: "api/user",
@@ -34,6 +34,7 @@ var UserApiUtil = {
       data: data,
       success: function(user){
         SessionActions.receiveCurrentUser(user);
+        cb && cb();
       },
       error: function(error){
         debugger;

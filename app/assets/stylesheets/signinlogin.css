@@ -32,6 +32,7 @@
   border-style: none;
   left: 13%;
   border: 1px solid #edeeee;
+  cursor: text;
 }
 
 .login li {
