@@ -26,7 +26,8 @@ var Discover = React.createClass({
     this.listener.remove();
   },
 
-  followUser: function(userId){
+  followUser: function(e){
+    var userId = e.currentTarget.id;
     FollowApiUtil.follow(userId, ImageApiUtil.fetchAllImages);
     followings[userId] = true;
     this.setState({ userFollowing: followings });
@@ -75,7 +76,8 @@ var Discover = React.createClass({
             {username}
           </Link>
           <h4>{name}</h4>
-          <button disabled={disabled} onClick={()=> this.followUser(this.state.users[Id].id)}>
+          <button disabled={disabled} id={this.state.users[Id].id}
+            onClick={this.followUser}>
             {this.buttonVal(this.state.users[Id].id)}
           </button>
         </li>
