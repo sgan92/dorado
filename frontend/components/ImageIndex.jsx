@@ -36,10 +36,12 @@ var ImageIndex = React.createClass({
     return(
       <div className="Index">
         <Discover />
-        <ul>
+
+        <ul >
           {posts}
         </ul>
-        <Link to="/new">+</Link>
+
+        <div className="mainLink"><Link to="/new">+</Link></div>
         <div className="background"></div>
       </div>
     );
