@@ -9,9 +9,17 @@ end
 
 json.images @user.images.each do |image|
   json.image_url image.photo.url(:post)
+  json.image_blurb image.image_blurb
   json.comments image.comments
   json.likes image.likes
   json.id  image.id
+
+  json.set! :likeusers do
+      image.likes.each do |like|
+       json.set! like.user.username, true
+     end
+  end
+
 end
 
 json.profile_pic @user.photo.url(:avatar)
