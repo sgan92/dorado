@@ -14,7 +14,6 @@ nav button {
   top: 14px;
   padding: 10px 20px;
   background: white;
-  border: 1px solid #e6e6e6;
   cursor: pointer;
 }
 
@@ -25,7 +24,6 @@ nav h1 {
   top: 14px;
   width: 50px;
   color: #cb8a3f;
-  border: 1px solid #e6e6e6;
   font-size: 11px;
   text-align: center;
   cursor: pointer;
