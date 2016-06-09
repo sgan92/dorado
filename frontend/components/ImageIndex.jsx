@@ -17,6 +17,7 @@ var ImageIndex = React.createClass({
   },
 
   photosAdded: function(){
+    console.log(ImageStore.all());
     this.setState({ images: ImageStore.all() });
   },
 
@@ -25,6 +26,7 @@ var ImageIndex = React.createClass({
   },
 
   render: function(){
+    console.log("asdlkghalsdghjk");
     var posts = this.state.images.map( function(image){
       return (
         <li key={image.id}>
