@@ -48,8 +48,13 @@ var Profile = React.createClass({
     this.setState({ follows: this.state.user.followers });
 
     if (this.state.user.user_followers){
-      this.state.user.user_followers[0] = this.state.user.user_followers[0] || {};
-      this.setState({ button: this.state.user.user_followers[0].hasOwnProperty(this.currentUser.username) });
+
+      var followerObj = {};
+      this.state.user.user_followers.map( function(obj){
+        followerObj[Object.keys(obj)[0]] = true;
+      });
+
+      this.setState({ button: followerObj.hasOwnProperty(this.currentUser.username) });
     }
 
   },
@@ -72,7 +77,7 @@ var Profile = React.createClass({
       this.setState({ modalOpen: true });
     } else if (this.button === "Follow") {
       FollowApiUtil.follow(this.state.user.id);
-      this.setState({ follows: this.state.follows + 1 })
+      this.setState({ follows: this.state.follows + 1 });
       this.setState({ button: true });
     } else if (this.button === "Unfollow") {
       FollowApiUtil.unfollow(this.state.user.id);
@@ -166,6 +171,7 @@ var Profile = React.createClass({
         blurb = this.state.user.profile_blurb;
       }
 
+      console.log(this.state.button);
       if (this.isCurrentUser()){
         this.button = "Edit Profile" ;
       } else if (this.state.button) {
