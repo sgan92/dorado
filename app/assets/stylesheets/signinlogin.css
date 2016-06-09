@@ -58,12 +58,20 @@
 }
 
 .login a {
-  padding: 10px;
   color: black;
   font-size: 10px;
-  position: relative;
-  top: 100px;
+  position: absolute;
   cursor: pointer;
+  border-radius: 10%;
+  font-size: 12px;
+  top: 350px;
+  width: 200px;
+  left: 45px;
+  text-align: center;
+}
+
+.login a:hover{
+  color: #bb5237;
 }
 
 .already {
@@ -81,7 +89,9 @@
   position: relative;
   top: 5px;
   font-size: 14px;
+  margin-right: 95px;
   cursor: pointer;
+  background: white;
 }
 
 .already a:hover{
