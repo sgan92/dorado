@@ -57,11 +57,11 @@ var ImageApiUtil = {
     });
   },
 
-  fetchByUser: function(userId){
+  fetchByUser: function(username){
     $.ajax({
       type: "GET",
-      url: "api/users/" + userId,
-      data: {id: userId},
+      url: "api/users/" + username,
+      data: {username: username},
       success: function(user){
         ImageActions.receiveUserForImg(user);
       },

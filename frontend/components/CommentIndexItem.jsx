@@ -4,7 +4,7 @@ var Link = require('react-router').Link;
 var CommentIndexItem = React.createClass({
   render: function(){
 
-    var userLink = "/" + this.props.comment.user.id;
+    var userLink = "/" + this.props.comment.user.username;
 
     return(
       <div id="comment" >

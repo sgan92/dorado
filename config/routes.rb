@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :show, :destroy, :index]
     resource :like, only: [:create, :destroy]
     resource :session, only: [:create, :destroy, :show]
-    resources :users, only: [:show]#, param: :username
+    resources :users, only: [:show], param: :username
     resource :follow, only: [:create, :destroy]
     resources :follows, only: [:index]
 

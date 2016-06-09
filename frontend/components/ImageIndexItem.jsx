@@ -100,7 +100,7 @@ var ImageIndexItem = React.createClass({
       isMaker = <button onClick={this.handleShare} id="delete">Share</button>;
     }
 
-    var userLink = "/" + this.props.post.user.id;
+    var userLink = "/" + this.props.post.user.username;
 
     return(
       <div className = "post">

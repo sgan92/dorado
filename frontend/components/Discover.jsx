@@ -61,7 +61,7 @@ var Discover = React.createClass({
       var name = this.state.users[Id].first_name + " " +
         this.state.users[Id].last_name;
 
-      var userLink = "/" + userId;
+      var userLink = "/" + username;
 
       var disabled = "";
 
