@@ -1,0 +1,735 @@
+.commentform input{
+  border: none;
+  padding: 10px;
+  position: relative;
+  left: 2.5%;
+  border: 1px solid #eee;
+  margin-top: 20px;
+  background: white;
+  width: 450px;
+}
+
+.commentform input[type=submit] {
+  float:none;
+  top: -70px;
+  left: 388px;
+  color: #999999;
+  width: 100px;
+  margin: 0;
+  cursor: pointer;
+}
+
+#comment {
+  font-size: 75%;
+  color: #797979;
+  padding: 2px 18px;
+}
+
+#comment a {
+  position: relative;
+  color: black;
+  opacity: 1;
+  margin-right: 10px;
+  color: #cb8a3f;
+  background: none;
+  padding: 0px;
+  left: 0%;
+}
+
+#all_comments {
+  margin-bottom: 10px;
+}
+
+.comments button{
+  display: block;
+  margin: auto;
+  clear: both;
+  width: 95%;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  color: #777777;
+  background: #f1f1f1;
+  transition: visibility 0s, background 0.5s linear;
+}
+
+.comments button:hover{
+  transition: visibility 0s, background 0.5s linear;
+  background: white;
+}
+.discover {
+  position: relative;
+  height: auto;
+  width: 530px;
+  overflow: hidden;
+  margin: auto;
+  top: -10%;
+  text-align: left;
+  z-index: 100;
+}
+
+.discover ul {
+  padding: 10px 10px;
+  background: white;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.discover li {
+  margin-left: 10px;
+  height: 70px;
+}
+
+.discover img {
+  height: 50px;
+  width: auto;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.discover a {
+  color: #938266;
+  position: relative;
+  top: -35px;
+  left: 10px;
+}
+
+.discover h2 {
+  position: relative;
+  top: 10%;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-left: 10px;
+  width: 100%;
+  color: #cdcdcd;
+  padding-bottom: 5px;
+}
+
+.discover h4{
+  font-size: 10px;
+  font-weight: lighter;
+  position: relative;
+  top: -50px;
+  left: 80px;
+}
+
+.discover button{
+  border: none;
+  position: relative;
+  left: 420px;
+  top: -92px;
+  padding: 7px 15px;
+  background: white;
+  border: 1px solid #cdcdcd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.discover button:disabled{
+  background: #808080;
+  color: white;
+}
+
+.editProfile h2 {
+  padding: 10px 20px;
+  font-size: 16px;
+  position: relative;
+  margin-left: 135px;
+}
+
+.editProfile button, input {
+  border: none;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 35px;
+  padding-right: 20px;
+  float: left;
+}
+
+.editProfile input[type="text"]  {
+  cursor: default;
+  width: 350px;
+  margin-left: 5px;
+}
+
+.editProfile input[type="submit"]  {
+  position: absolute;
+  top: 180px;
+  left: 130px;
+  padding: 10px 20px;
+}
+
+label {
+  position: absolute;
+  left: 165px;
+  top: 110px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.editProfile input[type="file"]  {
+  display: none;
+}
+
+.editProfile button {
+  position: absolute;
+  top: 180px;
+  left: 230px;
+  padding: 10px 20px;
+}
+.form {
+  background: white;
+  display: block;
+  position: fixed;
+  top: 30%;
+  left: 34%;
+  height: 300px;
+  width: 400px;
+  border: 10px solid white;
+  margin: auto;
+}
+
+textarea {
+  position: absolute;
+  bottom: 25%;
+  left: 17%;
+  margin-left: 5px;
+  border-top: 1px solid #d1d1d1;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid #d1d1d1;
+  opacity: 1;
+  resize: none;
+}
+
+.form h1 {
+  font-size: 36px;
+  font-weight: lighter;
+  position: absolute;
+  margin-left: 5px;
+  left: 36%;
+  padding-top: 20px;
+}
+
+.form h3 {
+  font-weight: lighter;
+  position: absolute;
+  left: 37%;
+  top: 35%;
+}
+
+.form input{
+  border: none;
+  background: white;
+  border: 1px solid #d1d1d1;
+  padding: 10px 22px 8px 22px;
+  cursor: pointer;
+  position: absolute;
+  top: 250px;
+  left: 250px;
+}
+
+.form input[type="file"]{
+  display: none;
+}
+
+.form label {
+  position: absolute;
+  border: 1px solid #d1d1d1;
+  font-size: 11px;
+  display: inline-block;
+  padding: 9px 20px;
+  cursor: pointer;
+  top: 250px;
+  left: 70px;
+}
+
+.form a {
+  position: fixed;
+  left: 84%;
+  border-radius: 50%;
+  top: 90%;
+  background: white;
+  padding: 25px 28px;
+  opacity: 0.6;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.form a:hover {
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 1;
+}
+
+.form ul {
+  position: relative;
+  color: #bf6c30;
+  top: 90px;
+  left: 120px;
+  font-weight: lighter;
+}
+
+.loading img{
+  position: absolute;
+  bottom: 30%;
+  left: 35%;
+  width: 35%;
+}
+.post {
+  background: white;
+  display: block;
+  height: auto;
+  width: 500px;
+  border: 15px solid white;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.post a {
+  font-weight: bolder;
+}
+
+#header {
+  display: block;
+  background: white;
+  position: relative;
+  padding: 10px 20px;
+}
+
+.post #username{
+  font-size: 16px;
+  font-weight: lighter;
+  top: -100px;
+  text-align: left;
+  color: #545454;
+}
+
+.post #username a {
+  position: relative;
+  left: -5%;
+  color: #cb8a3f;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.post #timestamps{
+  font-size: 12px;
+  font-weight: lighter;
+  margin-top: -16px;
+  color: #d1d1d1;
+  text-align: right;
+}
+
+.post img {
+  position: relative;
+  top: 10px;
+  height: auto;
+  width: auto;
+}
+
+.post #widthOver img  {
+  height: 500px;
+  width: auto;
+}
+
+.post  #widthUnder img  {
+  width: 500px;
+  height: auto;
+  max-height: 500px;
+}
+
+.post #blurb {
+  position: relative;
+  top: -10px;
+  border-bottom: 1px solid #f6f6f6;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #959595;
+}
+
+.post #blurb a {
+  position: relative;
+  left: -1%;
+  color: #cb8a3f;
+  padding: 0px;
+  margin-left: 15px;
+  font-size: 14px;
+  background: none;
+  opacity: 1;
+}
+
+.post #delete {
+
+  border: none;
+  background: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  top: -37px;
+  left: 83%;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+}
+
+
+.post #parent:hover #delete {
+  opacity: 0.7;
+  transition: visibility 0s, opacity 1s linear;
+}
+
+.post #likecontainer img{
+  border: none;
+  float: left;
+  background: white;
+  display: block;
+  padding-right: 10px;
+  margin-top: -18px;
+  margin-left: 8px;
+  z-index: 10;
+  height: 25px;
+  cursor: pointer;
+}
+
+.post #likecontainer {
+  position: relative;
+  font-size: 12px;
+  padding-bottom: 10px;
+  font-weight: lighter;
+}
+.Index {
+  z-index: -10;
+  position: absolute;
+  background: #f6f6f6;
+  width: 100%;
+  height: 100%;
+  top: 30%;
+}
+
+.background {
+  top: 0;
+  background: #f6f6f6;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.mainLink a {
+  position: fixed;
+  left: 85%;
+  border-radius: 50%;
+  top: 90%;
+  background: white;
+  padding: 25px 30px;
+  opacity: 0.6;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.mainLink a:hover {
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 1;
+}
+nav {
+  background: white;
+  position: fixed;
+  height: 65px;
+  width: 100%;
+  opacity: 1;
+
+}
+
+nav button {
+  position: fixed;
+  left: 85%;
+  border-style: none;
+  top: 14px;
+  padding: 10px 20px;
+  background: white;
+  cursor: pointer;
+}
+
+nav h1 {
+  position: fixed;
+  padding: 10px 20px;
+  left: 78%;
+  top: 14px;
+  width: 50px;
+  color: #cb8a3f;
+  font-size: 11px;
+  text-align: center;
+  cursor: pointer;
+}
+
+nav img {
+  position: absolute;
+  top: 10px;
+  left: 18%;
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+nav .logo img{
+  width: 50px;
+  left: 15%;
+  top: 8px;
+  padding-left: 10px;
+  position: relative;
+  height: auto;
+}
+.userImages {
+  position: absolute;
+  clear: both;
+  display: block;
+  left: 20%;
+  height: 100%;
+  padding-right: 100%;
+  overflow: scroll;
+}
+
+.profileInfo {
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.profileInfo h1 {
+  font-size: 36px;
+  font-weight: lighter;
+  position: relative;
+  left: 52%;
+}
+
+.profileInfo h2 {
+  font-size: 16px;
+  float: left;
+  position: relative;
+  left: 52%;
+  padding-left: 5px;
+}
+
+.profileInfo h3 {
+  font-size: 14px;
+  left: 50.5%;
+  position: relative;
+  padding-left: 20px;
+  margin: 0;
+  float: left;
+}
+
+.profileInfo p {
+  position: relative;
+  font-style: italic;
+  left: 53%;
+}
+
+.profileInfo button {
+  border: none;
+  color: black;
+  background: #f5f5f5;
+  padding: 2px 14px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  border-radius: 10%;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 145px;
+  left: 400px;
+}
+
+.userImages ul{
+  padding: 10px;
+  float: left;
+  margin-top: 50px;
+  width: 1020px;
+  height: 100%;
+}
+
+.userImages li {
+  width: 320px;
+  margin: 10px;
+  float: left;
+  background: #000;
+  height: 320px;
+}
+
+.userImages li img:hover{
+  display: block;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.userImages li img{
+  width: auto;
+  height: 320px;
+
+}
+
+.profile {
+  position: relative;
+  top: 210px;
+  left: 30%;
+  width: 175px;
+  height: 175px;
+}
+
+.profile img {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -10;
+  height: 175px;
+}
+.login {
+  background-color: white;
+  position: relative;
+  top: 200px;
+  padding: 20px;
+  display: block;
+  width: 250px;
+  height: 435px;
+  margin: auto;
+  text-align: center;
+  z-index: 10;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.login:hover{
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.login img {
+  position: relative;
+  margin-bottom: -70px;
+}
+
+.login input {
+  position: relative;
+  top: 90px;
+  padding: 10px 30px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border-style: none;
+  left: 13%;
+  border: 1px solid #edeeee;
+}
+
+.login li {
+  font-size: 10px;
+  position: relative;
+  top: 140px;
+  color: #bb5237;
+  padding: 1px;
+}
+
+.login button {
+  border: none;
+  padding: 7px 86px;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.7;
+  background-color: #e57c4f;
+  top: 120px;
+  cursor: pointer;
+}
+
+.login a {
+  padding: 10px;
+  color: black;
+  font-size: 10px;
+  position: relative;
+  top: 100px;
+  cursor: pointer;
+}
+
+.already {
+  position: absolute;
+  display: block;
+  top: 485px;
+  width: 250px;
+  right: 0px;
+  padding: 20px;
+  height: 30px;
+  background: white;
+}
+
+.already a {
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.already a:hover{
+  color: #bb5237;
+  letter-spacing: 1px;
+}
+
+#guest {
+  font-size: 12px;
+  padding: 0px;
+  width: 190px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+.upload_button {
+  border: none;
+  background-color: white;
+  color: black;
+}
+/*
+
+
+*/
+/* line 7, /Users/appacademy/Desktop/dorado/app/assets/stylesheets/application.css.scss */
+html, body, section, article, h1, h2, p, a, ul {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  list-style-type: none;
+  color: inherit;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* line 21, /Users/appacademy/Desktop/dorado/app/assets/stylesheets/application.css.scss */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: url(/assets/background-3e4ec4f7675dde8670c504476fb485de56a2bbf90b4221ccef463916ff8c9baa.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* line 27, /Users/appacademy/Desktop/dorado/app/assets/stylesheets/application.css.scss */
+body input:focus {
+  outline: none;
+}
+
+/* line 31, /Users/appacademy/Desktop/dorado/app/assets/stylesheets/application.css.scss */
+body textarea:focus {
+  outline: none;
+}
+
+/* line 35, /Users/appacademy/Desktop/dorado/app/assets/stylesheets/application.css.scss */
+body button:focus {
+  outline: none;
+}
