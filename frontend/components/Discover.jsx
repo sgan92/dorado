@@ -36,9 +36,9 @@ var Discover = React.createClass({
   buttonVal: function(userId){
     var button;
     if (this.state.userFollowing.hasOwnProperty(userId)){
-      button = "Following"
+      button = "Following";
     } else {
-      button = "Follow"
+      button = "Follow";
     }
     return button;
   },
@@ -46,27 +46,27 @@ var Discover = React.createClass({
   render: function(){
 
     var discovering = Object.keys(this.state.users).map(function (Id, index){
-      userId = this.state.users[Id].id
+      userId = this.state.users[Id].id;
 
-      var username = this.state.users[Id].username
+      var username = this.state.users[Id].username;
 
       var photo;
 
       if (this.state.users[Id].photo === ""){
-        photo = window.profilePic
+        photo = window.profilePic;
       } else {
-        photo = this.state.users[Id].photo
+        photo = this.state.users[Id].photo;
       }
 
       var name = this.state.users[Id].first_name + " " +
-        this.state.users[Id].last_name
+        this.state.users[Id].last_name;
 
       var userLink = "/" + userId;
 
       var disabled = "";
 
       if (this.buttonVal(userId)==="Following") {
-        disabled= "disabled"
+        disabled= "disabled";
       }
 
       return (

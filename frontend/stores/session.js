@@ -7,6 +7,7 @@ var SessionStore = new Store(Dispatcher);
 
 var _currentUser = {};
 var _users = {};
+var _searches = {};
 var _currentUserHasBeenFetched = false;
 
 function _login(currentUser){
@@ -48,6 +49,17 @@ SessionStore._setDiscovered = function(users){
   _users = userObj;
 };
 
+SessionStore._setSearch = function(users){
+  _searches = {};
+  users.map( function(user){
+    _searches[user.id] = user;
+  });
+};
+
+SessionStore.searchResults = function(){
+  return _searches;
+};
+
 SessionStore.__onDispatch = function(payload){
   switch(payload.actionType){
     case SessionConstants.LOGIN:
@@ -65,6 +77,10 @@ SessionStore.__onDispatch = function(payload){
       break;
     case UserConstants.DISCOVER:
       this._setDiscovered(payload.users);
+      this.__emitChange();
+      break;
+    case UserConstants.SEARCH:
+      this._setSearch(payload.users);
       this.__emitChange();
       break;
   }

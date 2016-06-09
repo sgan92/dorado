@@ -25,6 +25,13 @@ var SessionActions = {
      actionType: UserConstants.DISCOVER,
      users: users
    });
+ },
+
+ searchUsers: function(users){
+   Dispatcher.dispatch({
+     actionType: UserConstants.SEARCH,
+     users: users
+   });
  }
 
 };

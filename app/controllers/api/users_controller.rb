@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
 
     followings = {}
     followings[current_user.id] = true
-    
+
     current_user.followings.each do |following|
       followings[following.followee_id] = true
     end
@@ -20,6 +20,17 @@ class Api::UsersController < ApplicationController
     end
 
     @users = User.where(id: user_ids)
+    render "api/users/index"
+
+  end
+
+  def search
+    if params[:search].present?
+      @users = User.where("username ~ ?", params[:search])
+    else
+      @users = User.none
+    end
+
     render "api/users/index"
 
   end

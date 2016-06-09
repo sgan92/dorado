@@ -51,6 +51,21 @@ var UserApiUtil = {
         debugger;
       }
     });
+  },
+
+  searchUsers: function(search, cb){
+    $.ajax({
+      type: "GET",
+      url: "api/user/search",
+      data: {search: search},
+      success: function(users){
+        SessionActions.searchUsers(users);
+        cb && cb();
+      },
+      error: function(error){
+        debugger;
+      }
+    });
   }
 
 };
