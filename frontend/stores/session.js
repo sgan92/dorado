@@ -41,7 +41,11 @@ SessionStore.discoveredUsers = function(){
 };
 
 SessionStore._setDiscovered = function(users){
-  _users = users;
+  var userObj = {};
+  users.map( function(user){
+    userObj[user.id] = user;
+  });
+  _users = userObj;
 };
 
 SessionStore.__onDispatch = function(payload){
@@ -60,7 +64,7 @@ SessionStore.__onDispatch = function(payload){
       this.__emitChange();
       break;
     case UserConstants.DISCOVER:
-      this._setDiscovered(payload.users.users);
+      this._setDiscovered(payload.users);
       this.__emitChange();
       break;
   }

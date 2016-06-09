@@ -7,6 +7,8 @@ class Api::UsersController < ApplicationController
     users = User.limit(5).order("RANDOM()")
 
     followings = {}
+    followings[current_user.id] = true
+    
     current_user.followings.each do |following|
       followings[following.followee_id] = true
     end

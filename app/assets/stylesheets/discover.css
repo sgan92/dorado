@@ -1,12 +1,75 @@
-#discover {
-  position: absolute;
-  background: white;
+.discover {
+  position: relative;
   height: auto;
-  width: 500px;
-  border: 15px solid white;
+  width: 530px;
   overflow: hidden;
   margin: auto;
-  margin-bottom: 20px;
-  left: 36%;
-  top: -50%;
+  top: -10%;
+  text-align: left;
+  z-index: 100;
+}
+
+.discover ul {
+  padding: 10px 10px;
+  background: white;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.discover li {
+  margin-left: 10px;
+  height: 70px;
+}
+
+.discover img {
+  height: 50px;
+  width: auto;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.discover a {
+  color: #938266;
+  position: relative;
+  top: -35px;
+  left: 10px;
+}
+
+.discover h2 {
+  position: relative;
+  top: 10%;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-left: 10px;
+  width: 100%;
+  color: #cdcdcd;
+  padding-bottom: 5px;
+}
+
+.discover h4{
+  font-size: 10px;
+  font-weight: lighter;
+  position: relative;
+  top: -50px;
+  left: 80px;
+}
+
+.discover button{
+  border: none;
+  position: relative;
+  left: 390px;
+  top: -92px;
+  padding: 7px 15px;
+  background: white;
+  border: 1px solid #cdcdcd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.discover button:disabled{
+  background: #808080;
+  color: white;
 }
