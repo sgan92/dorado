@@ -99,4 +99,5 @@
   position: absolute;
   border-radius: 50%;
   z-index: -10;
+  height: 175px;
 }
