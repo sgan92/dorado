@@ -5,19 +5,18 @@
   border-radius: 4%;
   z-index: 100;
   cursor: text;
-  width: 250px;
+  width: 20%;
 }
 
 .searchBar ul {
   position: fixed;
   left: 530px;
-  width: 290px;
+  width: 23%;
   top: 50px;
   background: white;
   opacity: 0.7;
   height: auto;
   z-index: 100;
-  border-radius: 10%;
 }
 
 .searchBar li {
