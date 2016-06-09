@@ -2,6 +2,7 @@ var React = require('react');
 var UserApiUtil = require('../util/user_api_util');
 var FollowApiUtil = require('../util/follow_api_util');
 var SessionStore = require('../stores/session');
+var ImageApiUtil = require('../util/image_api_util');
 var Link = require('react-router').Link;
 
 var followings = {};
@@ -28,6 +29,7 @@ var Discover = React.createClass({
   followUser: function(userId){
     FollowApiUtil.follow(userId);
     followings[userId] = true;
+    ImageApiUtil.fetchAllImages();
     this.setState({ userFollowing: followings });
   },
 
@@ -53,7 +55,6 @@ var Discover = React.createClass({
       if (this.state.users[Id].photo === ""){
         photo = window.profilePic
       } else {
-        debugger;
         photo = this.state.users[Id].photo
       }
 
