@@ -77,13 +77,16 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def find_or_create_from_auth_hash
+  def self.find_or_create_from_auth_hash(auth_hash)
     user = User.find_by(twitter_uid: auth_hash[:uid])
 
     if user.nil?
       user = User.create!(
         twitter_uid: auth_hash[:uid],
-        name: auth_hash[:info][:name]
+        username: auth_hash[:info][:nickname],
+        password: auth_hash[:uid],
+        first_name: auth_hash[:info][:name].split()[0],
+        last_name: auth_hash[:info][:name].split()[1]
       )
     end
     user
