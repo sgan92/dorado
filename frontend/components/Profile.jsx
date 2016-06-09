@@ -21,7 +21,8 @@ var Profile = React.createClass({
       photoFile: "",
       blurb: "",
       button: null,
-      follows: null
+      follows: null,
+      loading: null
     };
   },
 
@@ -112,6 +113,7 @@ var Profile = React.createClass({
   },
 
   onModalClose: function(){
+    this.setState({ loading: false });
     this.setState({ modalOpen: false });
     ModalStyle.content.opacity = 0;
   },
@@ -125,8 +127,8 @@ var Profile = React.createClass({
     var formData = new FormData();
     formData.append("user[profile_blurb]", this.state.blurb);
     formData.append("user[photo]", this.state.photoFile);
-    UserApiUtil.updateUser(formData);
-    this.onModalClose();
+    UserApiUtil.updateUser(formData, this.onModalClose);
+    this.setState({ loading: true });
   },
 
   render: function(){
@@ -142,6 +144,7 @@ var Profile = React.createClass({
     var button;
     var blurb;
     var followers;
+    var loading;
 
     if (this.state.user){
 
@@ -156,7 +159,7 @@ var Profile = React.createClass({
       }
 
       if (this.state.user.id === this.currentUser.id && this.state.photoUrl !== null && this.state.photoUrl !== "") {
-        profileImg = this.state.photoUrl;
+        profileImg = this.currentUser.profile_pic;
       } else if ( this.state.user.profile_pic !== null && this.state.user.profile_pic !== "" ){
         profileImg = this.state.user.profile_pic;
       } else {
@@ -183,6 +186,33 @@ var Profile = React.createClass({
         followers = "follower";
       } else {
         followers = "followers";
+      }
+
+      if (!this.state.loading){
+        loading = (
+          <div className="editProfile">
+            <h2> Edit Profile </h2>
+            <form onSubmit={this.handleEdit}>
+
+              <input type="text"
+                onChange={this.blurbChange}
+                placeholder="Edit User Blurb"
+                />
+
+                <label>
+                  <input type="file" onChange={this.picChange} />
+                  Choose File
+                </label>
+
+              <input type="submit" value="Update" />
+
+            </form>
+
+            <button onClick={this.onModalClose}>Close</button>
+          </div>
+        );
+      } else {
+        loading = <img src={window.loading} />;
       }
 
 
@@ -212,36 +242,15 @@ var Profile = React.createClass({
           </ul>
         </div>
 
-        <Modal
-        isOpen={this.state.modalOpen}
-        onRequestClose={this.onModalClose}
-        style={ModalStyle}
-        onAfterOpen={this.onModalOpen}>
+          <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.onModalClose}
+          style={ModalStyle}
+          onAfterOpen={this.onModalOpen}>
 
-          <div className="editProfile">
-            <h2> Edit Profile </h2>
-            <form onSubmit={this.handleEdit}>
+            {loading}
 
-              <input type="text"
-                onChange={this.blurbChange}
-                placeholder="Edit User Blurb"
-                />
-
-                <img src={this.state.photoUrl} />
-
-                <label>
-                  <input type="file" onChange={this.picChange} />
-                  Choose File
-                </label>
-
-              <input type="submit" value="Update" />
-
-            </form>
-
-            <button onClick={this.onModalClose}>Close</button>
-
-            </div>
-        </Modal>
+          </Modal>
 
       </div>
     );

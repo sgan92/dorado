@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   end
 
+  get '/auth/:provider/callback', to: 'api/sessions#create'
+
 end

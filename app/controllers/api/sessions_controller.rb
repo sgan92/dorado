@@ -1,22 +1,30 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    @user = User.find_by_credentials(
-      params[:user][:username],
-      params[:user][:password]
-    )
 
-    if @user
-      login_user!(@user)
-      render "api/users/show"
+    if auth_hash
+      @user = User.find_or_create_from_auth_hash(auth_hash)
+      self.current_user = @user
+      redirect_to '/'
     else
-			render(
-        json: {
-          base: ["Invalid username/password combination"]
-        },
-        status: 401
+      @user = User.find_by_credentials(
+        params[:user][:username],
+        params[:user][:password]
       )
-		end
+
+      if @user
+        login_user!(@user)
+        render "api/users/show"
+      else
+  			render(
+          json: {
+            base: ["Invalid username/password combination"]
+          },
+          status: 401
+        )
+  		end
+
+    end
   end
 
   def destroy
@@ -36,6 +44,12 @@ class Api::SessionsController < ApplicationController
     else
       render json: {}
     end
+  end
+
+  private
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 
 end

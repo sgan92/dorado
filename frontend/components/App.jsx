@@ -32,10 +32,12 @@ var App = React.createClass({
 
   render: function(){
     var include;
-
-    var userLink = "/" + SessionStore.currentUser().id
+    var search;
+    var userLink = "/" + SessionStore.currentUser().id;
 
     if (SessionStore.isUserLoggedIn()){
+      search = <Search />;
+
       include = (
         <div>
             <nav>
@@ -55,7 +57,7 @@ var App = React.createClass({
     return(
       <header>
 
-        <Search />
+        {search}
           {include}
 
 
