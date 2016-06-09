@@ -12,7 +12,7 @@ json.images @user.images.each do |image|
   json.id  image.id
 end
 
-json.profile_pic @user.photo.url
+json.profile_pic @user.photo.url(:avatar)
 
 json.likes @user.likes do |like|
   json.image_id true
