@@ -5,6 +5,9 @@ var SessionApiUtil = require('../util/session_api_util');
 var LikeApiUtil = require('../util/like_api_util');
 var SessionStore = require('../stores/session');
 var CommentIndex = require('./CommentIndex');
+
+var ModalStyle = require('./ModalStyle');
+var Modal = require("react-modal");
 var Link = require('react-router').Link;
 
 var ImageIndexItem = React.createClass({
@@ -13,7 +16,8 @@ var ImageIndexItem = React.createClass({
     return {
       currentUser: SessionStore.currentUser(),
       likes: ImageStore.allLikes(this.props.post.id),
-      likeimg: ""
+      likeimg: "",
+      modalOpen: false
     };
   },
 
@@ -73,6 +77,11 @@ var ImageIndexItem = React.createClass({
     return view;
   },
 
+  handleShare: function(e){
+    //link to image show one day
+
+  },
+
   render: function(){
 
     var whichAuto;
@@ -88,7 +97,7 @@ var ImageIndexItem = React.createClass({
     if(SessionStore.currentUser().id === this.props.post.user.id) {
       isMaker = <button onClick={this.handleDelete} id="delete">Delete</button>;
     } else {
-      isMaker = <button id="delete">Share</button>;
+      isMaker = <button onClick={this.handleShare} id="delete">Share</button>;
     }
 
     var userLink = "/" + this.props.post.user.id;
@@ -109,6 +118,7 @@ var ImageIndexItem = React.createClass({
         <div id="parent">
           {whichAuto}
           {isMaker}
+          {this.share}
         </div>
 
         <div id="likecontainer">

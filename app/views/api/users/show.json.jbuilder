@@ -9,6 +9,8 @@ end
 
 json.images @user.images.each do |image|
   json.image_url image.photo.url(:post)
+  json.comments image.comments
+  json.likes image.likes
   json.id  image.id
 end
 
