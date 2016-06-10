@@ -9,7 +9,6 @@ var ImageApiUtil = {
       data: {page: page},
       success: function(images){
         ImageActions.receiveAllImages(images);
-        console.log("fetching");
       },
       error: function(error){
         debugger;
