@@ -48,7 +48,7 @@ var Search = React.createClass({
         userPhoto = userObj.photo;
       }
 
-      var userLink = "/" + userId;
+      var userLink = "/" + username;
 
       if (this.state.searching !== "" ){
         return (
