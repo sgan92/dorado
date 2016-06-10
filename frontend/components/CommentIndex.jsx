@@ -21,6 +21,7 @@ var CommentIndex = React.createClass({
       CommentApiUtil.fetchComments(this.props.image.id);
     }
     this.listener = CommentStore.addListener(this.commentChange);
+    this.imageListener = ImageStore.addListener(this.commentChange);
   },
 
   commentChange: function(){

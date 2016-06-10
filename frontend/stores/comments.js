@@ -1,6 +1,7 @@
 var Store = require('flux/utils').Store;
 var Dispatcher = require('../dispatcher/dispatcher');
 var CommentConstants = require('../constants/comment_constants');
+var ImageConstants = require('../constants/image_constants');
 
 var CommentsStore = new Store(Dispatcher);
 
