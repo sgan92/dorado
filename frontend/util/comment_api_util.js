@@ -16,7 +16,6 @@ var CommentApiUtil = {
         CommentActions.receiveComment(comment);
       },
       error: function(error){
-        console.log(error);
       }
     });
   },
