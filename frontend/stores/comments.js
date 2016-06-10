@@ -18,6 +18,7 @@ CommentsStore.receiveOne = function(comment){
 };
 
 CommentsStore.receiveAll = function(comments){
+
   comments.map( function(comment){
     _comments[comment.image_id] = _comments[comment.image_id] || [];
     _comments[comment.image_id].push(comment);

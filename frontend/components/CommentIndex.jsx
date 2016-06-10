@@ -4,8 +4,6 @@ var CommentStore = require('../stores/comments');
 var CommentForm = require('./CommentForm');
 var CommentIndexItem = require('./CommentIndexItem');
 
-var commentloadcounter = 0;
-
 var CommentIndex = React.createClass({
 
 
@@ -17,9 +15,7 @@ var CommentIndex = React.createClass({
   },
 
   componentDidMount: function(){
-    if (commentloadcounter === 0){
-      CommentApiUtil.fetchComments(this.props.image.id);
-    }
+    CommentApiUtil.fetchComments(this.props.image.id);
     this.listener = CommentStore.addListener(this.commentChange);
   },
 
@@ -28,7 +24,6 @@ var CommentIndex = React.createClass({
   },
 
   componentWillUnmount: function(){
-    commentloadcounter ++;
     this.listener.remove();
   },
 
@@ -43,19 +38,22 @@ var CommentIndex = React.createClass({
 
   render: function(){
 
+    console.log(this.state.comments.length);
+
     var load;
+    var comments;
 
     if (this.state.comments.length >3 && !this.state.load){
-      var comments = this.state.comments.slice(this.state.comments.length - 3).map( function(comment){
+      comments = this.state.comments.slice(this.state.comments.length - 3).map( function(comment){
+        load = <button onClick={this.load}>All Comments </button>;
         return(
           <li key={comment.id}>
           <CommentIndexItem comment={comment}  />
           </li>
         );
-      });
-      load = <button onClick={this.load}>All Comments </button>;
+      }.bind(this));
     } else {
-      var comments = this.state.comments.map( function(comment){
+      comments = this.state.comments.map( function(comment){
         return( <li key={comment.id}><CommentIndexItem comment={comment}  /></li>);
       });
       if (this.state.comments.length > 3){
