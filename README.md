@@ -2,14 +2,17 @@
 
 <h2>Heroku</h2>
 
-[dorado](http://instainstaclone.herokuapp.com/)
+[dorado](http://dorado.herokuapp.com/)
 
 Dorado is a full-stack web application that was modeled after [Instagram](https://www.instagram.com/?hl=en). It utilizes PostgreSQL, Ruby on Rails, React.js, and Flux. By using ajax requests, dorado is a single page app with all content delivered on a static page.
 
 <h3> Features </h3>
-![alt text](http://i.imgur.com/svcrhKu.png)
+
+![alt text](http://i.imgur.com/HNZxYkp.jpg)
 
 Dorado's main feature is uploading an image. This image is stored as a table, with whatever comment the poster wishes to make, as well as the time it was created so that a time stamp can be rendered.
+
+![alt text](http://i.imgur.com/svcrhKu.png)
 
 When a user first signs in, a 'discover' function is available, as well as a search bar that will look through the database for usernames that may match what the user is looking for.
 
