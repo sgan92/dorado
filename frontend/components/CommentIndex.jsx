@@ -1,7 +1,6 @@
 var React = require('react');
 var CommentApiUtil = require('../util/comment_api_util');
 var CommentStore = require('../stores/comments');
-var ImageStore = require('../stores/images');
 var CommentForm = require('./CommentForm');
 var CommentIndexItem = require('./CommentIndexItem');
 
@@ -22,7 +21,6 @@ var CommentIndex = React.createClass({
       CommentApiUtil.fetchComments(this.props.image.id);
     }
     this.listener = CommentStore.addListener(this.commentChange);
-    this.imageListener = ImageStore.addListener(this.commentChange);
   },
 
   commentChange: function(){
