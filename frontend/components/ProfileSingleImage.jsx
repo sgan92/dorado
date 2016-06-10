@@ -15,6 +15,10 @@ var ProfileSingleImage = React.createClass({
   },
 
   handleClick: function(){
+    ImageApiUtil.fetchByUser(this.props.params.username, this.openModal);
+  },
+
+  openModal: function(){
     this.setState({ modalOpen: true });
   },
 
