@@ -15,6 +15,7 @@ var ImageIndex = React.createClass({
 
   componentDidMount: function(){
     ImageApiUtil.fetchAllImages(page);
+    this.isBottom();
     this.listener = ImageStore.addListener(this.photosAdded);
   },
 
@@ -31,13 +32,11 @@ var ImageIndex = React.createClass({
      if($(window).scrollTop() + $(window).height() == $(document).height()) {
          ImageApiUtil.fetchAllImages(page + 1);
          page ++;
-     }
+       }
     });
   },
 
   render: function(){
-
-    this.isBottom();
 
     var posts = this.state.images.map( function(image){
       return (
