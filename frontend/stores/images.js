@@ -22,6 +22,7 @@ ImageStore.receiveAllImages = function(images){
   images.map( function(image){
     _posts[image.id] = image;
   });
+
 };
 
 ImageStore.receiveImage = function(image){

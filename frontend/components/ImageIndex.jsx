@@ -5,6 +5,8 @@ var ImageIndexItem = require('./ImageIndexItem');
 var Discover = require('./Discover');
 var Link = require('react-router').Link;
 
+var page = 1;
+
 var ImageIndex = React.createClass({
 
   getInitialState: function(){
@@ -12,7 +14,7 @@ var ImageIndex = React.createClass({
   },
 
   componentDidMount: function(){
-    ImageApiUtil.fetchAllImages();
+    ImageApiUtil.fetchAllImages(page);
     this.listener = ImageStore.addListener(this.photosAdded);
   },
 
@@ -24,8 +26,18 @@ var ImageIndex = React.createClass({
     this.listener.remove();
   },
 
+  isBottom: function(){
+    $(window).scroll(function() {
+     if($(window).scrollTop() + $(window).height() == $(document).height()) {
+         ImageApiUtil.fetchAllImages(page + 1);
+         page ++;
+     }
+    });
+  },
+
   render: function(){
 
+    this.isBottom();
 
     var posts = this.state.images.map( function(image){
       return (

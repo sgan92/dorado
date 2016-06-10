@@ -10,7 +10,19 @@ class Api::ImagesController < ApplicationController
       following << followee.followee_id
     end
 
-    @images = Image.where( user_id: following )
+    page = params[:page]
+
+    if page == "1"
+      return @images = Image.where( user_id: following ).page(page).per(10)
+    else
+      arr = []
+      page = page.to_i
+      (1..page).each do |page|
+        arr << Image.where( user_id: following ).page(page).per(10)
+      end
+      @images = arr.flatten
+      return @images
+    end
 
   end
 

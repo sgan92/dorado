@@ -98,7 +98,6 @@ var Profile = React.createClass({
     var fileReader = new FileReader();
     fileReader.onloadend = function () {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
-      console.log(fileReader.result);
     }.bind(this);
 
     if(file){
