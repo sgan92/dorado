@@ -6,11 +6,10 @@ var CommentIndexItem = require('./CommentIndexItem');
 
 var CommentIndex = React.createClass({
 
-
   getInitialState:function(){
     return {
       comments: CommentStore.all(this.props.image.id),
-      load: false
+      load: false,
     };
   },
 
@@ -24,22 +23,23 @@ var CommentIndex = React.createClass({
   },
 
   componentWillUnmount: function(){
+    this.setState({ commentsLength: length });
     this.listener.remove();
   },
 
   load: function(e){
     e.preventDefault();
     if (this.state.load){
-      this.setState({load: false});
+      this.setState({load: false, comments: CommentStore.all(this.props.image.id)});
     } else {
-      this.setState({load: true});
+      this.setState({load: true, comments: CommentStore.all(this.props.image.id)});
     }
   },
 
   render: function(){
 
-    console.log(this.state.comments.length);
-
+    console.log("this.state.comments.length" + this.state.comments.length);
+    console.log("CommentStore.all" + CommentStore.all(this.props.image.id).length);
     var load;
     var comments;
 
@@ -56,7 +56,7 @@ var CommentIndex = React.createClass({
       comments = this.state.comments.map( function(comment){
         return( <li key={comment.id}><CommentIndexItem comment={comment}  /></li>);
       });
-      if (this.state.comments.length > 3){
+      if (this.state.commentsLength > 3){
         load = <button onClick={this.load}>Less Comments</button>;
       }
     }
