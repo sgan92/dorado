@@ -18,6 +18,6 @@ This search has been optimized such that only a maximum of five random users wil
 `users = User.limit(5).order("RANDOM()")` is used such that the Users are ordered randomly, and the first five are returned.
 
 <h3>Future Directions</h3>
--[ ] Direct Messaging : Further the social aspects of Dorado
--[ ] Tags : Like instagram, a hash tagging system
--[ ] Optimize Search : as of now, the search works fine because of the small database. However, in the future, a better algorithm will have to be utilized in order to make it realistic.
+- [ ] Direct Messaging : Further the social aspects of Dorado
+- [ ] Tags : Like instagram, a hash tagging system
+- [ ] Optimize Search : as of now, the search works fine because of the small database. However, in the future, a better algorithm will have to be utilized in order to make it realistic.
