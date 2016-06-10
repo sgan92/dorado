@@ -29,10 +29,9 @@ var ImageIndex = React.createClass({
   checkScroll: function(){
     $(window).scroll(function() {
       if($(window).scrollTop() + $(window).height() == $(document).height()) {
-      ImageApiUtil.fetchAllImages(page + 1);
-      page ++;
-      console.log(page);
-     }
+        ImageApiUtil.fetchAllImages(page + 1);
+        page ++;
+      }
     });
   },
 
