@@ -14,11 +14,11 @@ class Api::ImagesController < ApplicationController
     arr = []
 
     if page == "1"
-      return @images = Image.where( user_id: following ).reverse_order.page(page).per(3)
+      return @images = Image.where( user_id: following ).reverse_order.page(page).per(10)
     else
       page = page.to_i
       (1...page).each do |page|
-        arr << Image.where( user_id: following ).reverse_order.page(page).per(3)
+        arr << Image.where( user_id: following ).reverse_order.page(page).per(10)
       end
     end
 
