@@ -1,5 +1,5 @@
 .searchBar input {
-  left: 530px;
+  left: 40%;
   top: 15px;
   position: fixed;
   border-radius: 4%;
@@ -10,7 +10,7 @@
 
 .searchBar ul {
   position: fixed;
-  left: 530px;
+  left: 40%;
   width: 290px;
   top: 50px;
   background: white;
