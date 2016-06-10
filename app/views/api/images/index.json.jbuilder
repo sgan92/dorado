@@ -1,4 +1,5 @@
 json.array! @images do |image|
+
   json.image_url image.photo.url(:post)
   json.image_blurb image.image_blurb
   json.user image.user

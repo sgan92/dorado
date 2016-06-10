@@ -2,12 +2,14 @@ var ImageActions = require('../actions/image_actions');
 var ErrorActions = require('../actions/error_actions');
 
 var ImageApiUtil = {
-  fetchAllImages: function(){
+  fetchAllImages: function(page, cb){
     $.ajax({
       type: "GET",
       url: "api/images",
+      data: {page: page},
       success: function(images){
         ImageActions.receiveAllImages(images);
+        cb && cb();
       },
       error: function(error){
         debugger;
