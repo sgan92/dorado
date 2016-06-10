@@ -38,8 +38,6 @@ var CommentIndex = React.createClass({
 
   render: function(){
 
-    console.log("this.state.comments.length" + this.state.comments.length);
-    console.log("CommentStore.all" + CommentStore.all(this.props.image.id).length);
     var load;
     var comments;
 
