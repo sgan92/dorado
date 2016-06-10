@@ -10,13 +10,21 @@ Dorado is a full-stack web application that was modeled after [Instagram](https:
 
 ![alt text](http://i.imgur.com/HNZxYkp.jpg)
 
-Dorado's main feature is uploading an image. This image is stored as a table, with whatever comment the poster wishes to make, as well as the time it was created so that a time stamp can be rendered.
+For convenience, a user can sign into Dorado via Twitter. By using OmniAuth, the user's twitter UID can be used to skip the entire registration process.
+
+![alt text](http://i.imgur.com/rFl414k.png)
+
+Dorado's main feature is uploading an image. This image is stored in a table, with whatever comment the poster wishes to make, as well as the time it was created so that a time stamp can be rendered.
+
+These images are uploaded via paperclip and hosted on amazon web services. During upload, three different versions of the image is uploaded at different sizes, so that when rendering, the optimal size can be chosen.
+
+These images can then be commented/liked. To keep the dashboard at a manageable size, if the number of comments exceed `3`, the user can toggle to see all comments, or only the most recent `3`.
 
 ![alt text](http://i.imgur.com/svcrhKu.png)
 
 When a user first signs in, a 'discover' function is available, as well as a search bar that will look through the database for usernames that may match what the user is looking for.
 
-This search has been optimized such that only a maximum of five random users will be returned. These five users are then checked against the users the current user is already following.
+This function has been optimized such that only a maximum of five random users will be returned. These five users are then checked against the users the current user is already following.
 
 `users = User.limit(5).order("RANDOM()")` is used such that the Users are ordered randomly, and the first five are returned.
 
