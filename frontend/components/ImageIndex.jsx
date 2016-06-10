@@ -3,6 +3,7 @@ var ImageStore = require('../stores/images');
 var ImageApiUtil = require('../util/image_api_util');
 var ImageIndexItem = require('./ImageIndexItem');
 var Discover = require('./Discover');
+var Infinite = require('react-infinite');
 var Link = require('react-router').Link;
 
 var ImageIndex = React.createClass({
@@ -37,9 +38,11 @@ var ImageIndex = React.createClass({
       <div className="Index">
         <Discover />
 
-        <ul >
-          {posts}
-        </ul>
+          <ul >
+          <Infinite elementHeight={830} useWindowAsScrollContainer>
+            {posts}
+            </Infinite>
+          </ul>
 
         <div className="mainLink"><Link to="/new">+</Link></div>
         <div className="background"></div>
