@@ -148,7 +148,7 @@ var Profile = React.createClass({
 
       if (this.state.user.images){
 
-        images = <ProfileImageIndex images = {this.state.images} />;
+        images = <ProfileImageIndex images = {this.state.images} username={this.state.user.username} />;
 
 
         numPosts = this.state.user.images.length;
