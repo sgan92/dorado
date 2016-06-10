@@ -23,7 +23,6 @@ var ProfileSingleImage = React.createClass({
   },
 
   render: function(){
-
     return (
       <div>
         <li key={this.props.image.id} onClick={this.handleClick}>
@@ -45,7 +44,7 @@ var ProfileSingleImage = React.createClass({
           <div className="Comments">
             <CommentIndex image={this.props.image}/>
 
-          
+
             <button onClick={this.onModalClose} id="close">Close</button>
           </div>
         </div>
