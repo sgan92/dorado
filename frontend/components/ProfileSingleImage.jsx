@@ -2,6 +2,7 @@ var React = require('react');
 var Modal = require("react-modal");
 var ModalStyle = require('./ModalStyle');
 var CommentIndex = require('./CommentIndex');
+var CommentApiUtil = require('../util/comment_api_util');
 var SessionStore = require('../stores/session');
 var ImageApiUtil = require('../util/image_api_util');
 var ImageStore = require('../stores/images');
@@ -15,6 +16,10 @@ var ProfileSingleImage = React.createClass({
   },
 
   handleClick: function(){
+    CommentApiUtil.fetchComments(this.props.image.id, this.openModal);
+  },
+
+  openModal: function(){
     this.setState({ modalOpen: true });
   },
 

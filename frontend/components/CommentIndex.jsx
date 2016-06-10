@@ -42,6 +42,7 @@ var CommentIndex = React.createClass({
   },
 
   render: function(){
+
     var load;
 
     if (this.state.comments.length >3 && !this.state.load){

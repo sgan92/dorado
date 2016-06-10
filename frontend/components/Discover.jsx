@@ -2,6 +2,7 @@ var React = require('react');
 var UserApiUtil = require('../util/user_api_util');
 var FollowApiUtil = require('../util/follow_api_util');
 var SessionStore = require('../stores/session');
+var CommentApiUtil = require('../util/comment_api_util');
 var ImageApiUtil = require('../util/image_api_util');
 var Link = require('react-router').Link;
 

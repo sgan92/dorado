@@ -21,13 +21,14 @@ var CommentApiUtil = {
     });
   },
 
-  fetchComments: function(image_id){
+  fetchComments: function(image_id, cb){
     $.ajax({
       type: "GET",
       url: "api/comments",
       data: { comment: {image_id: image_id} },
       success: function(comments){
         CommentActions.receiveComments(comments);
+        cb && cb();
       },
       error: function(error){
 
