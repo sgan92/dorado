@@ -32,7 +32,7 @@ var ProfileSingleImage = React.createClass({
       <div>
         <li key={this.props.image.id} onClick={this.handleClick}>
           <img src={this.props.image.image_url} />
-          <h3>{this.props.image.likes.length}♥ {this.props.image.comments.length}☁ </h3>
+          <h3>{this.props.image.likes.length}♥ {this.props.image.comments.length} <i className="fa fa-comment" aria-hidden="true"></i> </h3>
         </li>
 
 
