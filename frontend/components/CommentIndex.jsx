@@ -1,6 +1,7 @@
 var React = require('react');
 var CommentApiUtil = require('../util/comment_api_util');
 var CommentStore = require('../stores/comments');
+var CommentStore = require('../stores/images');
 var CommentForm = require('./CommentForm');
 var CommentIndexItem = require('./CommentIndexItem');
 
