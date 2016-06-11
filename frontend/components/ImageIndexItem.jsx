@@ -6,8 +6,6 @@ var LikeApiUtil = require('../util/like_api_util');
 var SessionStore = require('../stores/session');
 var CommentIndex = require('./CommentIndex');
 
-var ModalStyle = require('./ModalStyle');
-var Modal = require("react-modal");
 var Link = require('react-router').Link;
 
 var ImageIndexItem = React.createClass({
@@ -78,19 +76,10 @@ var ImageIndexItem = React.createClass({
   },
 
   handleShare: function(e){
-    //link to image show one day
-
+    window.prompt("Copy to clipboard (Ctrl/Cmd & C)", this.props.post.image_url );
   },
 
   render: function(){
-
-    var whichAuto;
-
-    if (this.props.post.width > 500){
-      whichAuto = <div id="widthOver"><img src={this.props.post.image_url}/></div>;
-    } else {
-      whichAuto = <div id="widthUnder"><img src={this.props.post.image_url} /></div>;
-    }
 
     var isMaker;
 
@@ -116,7 +105,7 @@ var ImageIndexItem = React.createClass({
         </div>
 
         <div id="parent">
-          {whichAuto}
+          <img src={this.props.post.image_url}/>
           {isMaker}
           {this.share}
         </div>
