@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
     if params[:search].present?
       @users =
       User.where("LOWER(username) ~ LOWER(?)", params[:search])
-      .joins(:follows)
+      .joins(:images)
       .group("id")
       .limit(5)
     else
