@@ -35,11 +35,12 @@ var ImageApiUtil = {
       processData: false,
       data: image_data,
       success: function(image){
+        debugger;
         ImageActions.receiveImage(image);
-        cb();
+        cb && cb();
       },
       error: function(error){
-        ErrorActions.setErrors("image", error.responseJSON);
+        debugger;
       }
     });
   },
