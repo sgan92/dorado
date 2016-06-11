@@ -26,7 +26,11 @@ class Api::UsersController < ApplicationController
 
   def search
     if params[:search].present?
-      @users = User.where("LOWER(username) ~ LOWER(?)", params[:search]).limit(5)
+      @users =
+      User.where("LOWER(username) ~ LOWER(?)", params[:search])
+      .joins(:follows)
+      .group("id")
+      .limit(5)
     else
       @users = User.none
     end
