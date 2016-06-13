@@ -10,13 +10,6 @@ var NotificationActions = {
     });
   },
 
-  receiveNotification: function(notification){
-    Dispatcher.dispatch({
-      actionType: NotificationConstants.ONE_NOTIFICATION,
-      notification: notification
-    })
-  },
-
   removeNotification: function(notification){
     Dispatcher.dispatch({
       actionType: NotificationConstants.REMOVE_NOTIFICATION,

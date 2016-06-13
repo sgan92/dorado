@@ -20,7 +20,7 @@ var NotificationApiUtil = {
       url: "api/notifications",
       data: data,
       success: function(notification){
-        NotificationActions.receiveNotification(notification)
+
       },
       error: function(error){
 

@@ -21,9 +21,6 @@ NotificationsStore.receiveAllNotifications = function(notifications){
   });
 };
 
-NotificationsStore.receiveNotification = function(notification){
-  _notifications[notification.id] = notification;
-};
 
 NotificationsStore.removeNotification = function(notification){
   delete _notifications[notification.id];
@@ -34,11 +31,7 @@ NotificationsStore.__onDispatch = function(payload){
     case NotificationConstants.ALL_NOTIFICATIONS:
       this.receiveAllNotifications(payload.notifications);
       this.__emitChange();
-      break;
-    case NotificationConstants.ONE_NOTIFICATION:
-      this.receiveNotification(payload.notification);
-      this.__emitChange();
-      break;
+      break;;
     case NotificationConstants.REMOVE_NOTIFICATION:
       this.removeNotification(payload.notification);
       this.__emitChange();
