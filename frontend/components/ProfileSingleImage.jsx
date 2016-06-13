@@ -47,7 +47,7 @@ var ProfileSingleImage = React.createClass({
           <h3>{this.props.image.username} {this.props.image.image_blurb}</h3>
 
           <div className="Comments">
-            <CommentIndex image={this.props.image}/>
+            <CommentIndex image={this.props.image} user={this.props.user}/>
 
 
             <button onClick={this.onModalClose} id="close">Close</button>
