@@ -1,6 +1,6 @@
 class ChangeColumn < ActiveRecord::Migration
   def change
     remove_column :notifications, :type
-    add_column :notifications, :notif_type, :string, null: se
+    add_column :notifications, :notif_type, :string, null:
   end
 end
