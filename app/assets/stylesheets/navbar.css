@@ -9,22 +9,23 @@ nav {
 
 nav button {
   position: fixed;
-  left: 85%;
+  left: 86%;
   border-style: none;
   top: 14px;
   padding: 10px 20px;
-  background: white;
+  font-size: 20px;
   cursor: pointer;
+  background: transparent;
 }
 
 nav h1 {
   position: fixed;
   padding: 10px 20px;
   left: 78%;
-  top: 14px;
+  top: 13px;
   width: 50px;
   color: #cb8a3f;
-  font-size: 11px;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
 }

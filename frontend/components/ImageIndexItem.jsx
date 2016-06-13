@@ -128,7 +128,7 @@ var ImageIndexItem = React.createClass({
           </Link>
             {this.props.post.image_blurb}
         </div>
-          <CommentIndex image={this.props.post}/>
+          <CommentIndex image={this.props.post} user={this.props.post.user}/>
       </div>
     );
   }

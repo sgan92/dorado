@@ -37,6 +37,22 @@ class User < ActiveRecord::Base
   )
 
   has_many(
+    :notifications,
+    dependent: :destroy,
+    class_name: "Notification",
+    foreign_key: :notifiee_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :notifyings,
+    dependent: :destroy,
+    class_name: "Notification",
+    foreign_key: :notifier_id,
+    primary_key: :id
+  )
+
+  has_many(
     :follows,
     dependent: :destroy,
     class_name: "Follow",
@@ -48,12 +64,17 @@ class User < ActiveRecord::Base
     :followings,
     dependent: :destroy,
     class_name: "Follow",
-    foreign_key: :follower_id
+    foreign_key: :follower_id,
+    primary_key: :id
   )
 
   has_many :followers, through: :follows, source: :follower
 
   has_many :followed_users, through: :followings, source: :followee
+
+  has_many :notifiers, through: :notifications, source: :notifiee
+
+  has_many :notifiees, through: :notifiyings, source: :notifier
 
   def password=(password)
     @password = password

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resource :follow, only: [:create, :destroy]
     resources :follows, only: [:index]
 
+    resources :notifications, only: [:create, :destroy, :index]
+
     resource :user do
       member do
         get 'discover'

@@ -3,6 +3,7 @@ var ImageStore = require('../stores/images');
 var ImageApiUtil = require('../util/image_api_util');
 var ImageIndexItem = require('./ImageIndexItem');
 var Discover = require('./Discover');
+var SessionStore = require('../stores/session');
 var Link = require('react-router').Link;
 
 var page = 1;
@@ -23,17 +24,21 @@ var ImageIndex = React.createClass({
     this.setState({ images: ImageStore.all() });
   },
 
-  componentWillUnmount: function(){
-    this.listener.remove();
+  isBottom: function(){
+
+    if ( SessionStore.currentUser().id !== undefined ){
+      $(window).scroll(function() {
+       if($(window).scrollTop() + $(window).height() == $(document).height()) {
+           ImageApiUtil.fetchAllImages(page + 1);
+           page ++;
+         }
+      });
+    }
+
   },
 
-  isBottom: function(){
-    $(window).scroll(function() {
-     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-         ImageApiUtil.fetchAllImages(page + 1);
-         page ++;
-       }
-    });
+  componentWillUnmount: function(){
+    this.listener.remove();
   },
 
   render: function(){
@@ -54,7 +59,10 @@ var ImageIndex = React.createClass({
             {posts}
           </ul>
 
-        <div className="mainLink"><Link to="/new">+</Link></div>
+        <div className="mainLink">
+          <Link to="/new">
+            <i className="fa fa-camera-retro" aria-hidden="true"></i>
+          </Link></div>
         <div className="background"></div>
       </div>
     );

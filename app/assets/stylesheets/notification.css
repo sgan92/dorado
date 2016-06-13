@@ -1,0 +1,55 @@
+.notifications ul {
+  position: absolute;
+  top: 35px;
+}
+
+.notifications li {
+  position: relative;
+  width: 200px;
+  top: 20px;
+  background: white;
+  font-size: 10px;
+  text-align: right;
+  padding: 15px 20px;
+  font-family: sans-serif;
+  color: #757575;
+}
+
+.notifications li:hover {
+  opacity: 0.5;
+}
+
+.notifications img {
+  height: 25px;
+  left: 10px;
+  width: auto;
+}
+
+#env {
+  position: absolute;
+  left: 82.5%;
+  font-size: 16px;
+  top: 2px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#env h1 {
+  color: white;
+  background: #cb8a3f;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 0px;
+  width: 14px;
+  position: relative;
+
+}
+
+#emptyEnv {
+  position: absolute;
+  left: 82.5%;
+  font-size: 15px;
+  top: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+}

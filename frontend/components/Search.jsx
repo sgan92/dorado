@@ -2,6 +2,7 @@ var React = require('react');
 var SessionStore = require('../stores/session');
 var UserApiUtil = require('../util/user_api_util');
 var Link = require('react-router').Link;
+
 var Search = React.createClass({
 
   getInitialState: function(){
@@ -14,6 +15,10 @@ var Search = React.createClass({
 
   searchResults: function(){
     this.setState({ searchResults: SessionStore.searchResults() });
+  },
+
+  componentWillUnmount: function(){
+    this.listener.remove();
   },
 
   searchUsers: function(e){

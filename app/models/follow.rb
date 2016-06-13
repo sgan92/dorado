@@ -1,4 +1,7 @@
 class Follow < ActiveRecord::Base
+  
+  validates :followee, :follower, presence: true
+  validates :follower, uniqueness: { scope: :followee }
 
   belongs_to(
     :follower,
@@ -14,8 +17,6 @@ class Follow < ActiveRecord::Base
     primary_key: :id
   )
 
-  validates :followee, :follower, presence: true
-  validates :follower, uniqueness: { scope: :followee }
 
   def followee_followers
     follower_usernames = []

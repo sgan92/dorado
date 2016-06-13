@@ -1,0 +1,7 @@
+var NotificationConstants = {
+  ALL_NOTIFICATIONS: "ALL_NOTIFICATIONS",
+  ONE_NOTIFICATION: "ONE_NOTIFICATION",
+  REMOVE_NOTIFICATION: "REMOVE_NOTIFICATION"
+};
+
+module.exports = NotificationConstants;
