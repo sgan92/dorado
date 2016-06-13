@@ -2,9 +2,16 @@ var React = require('react');
 var SessionStore = require('../stores/session');
 var SessionApiUtil = require('../util/session_api_util');
 var Search = require('./Search');
+var NotificationIndex = require('./NotificationIndex');
+var NotificationApiUtil = require('../util/notification_api_util');
+var NotificationsStore = require('../stores/notifications');
 var Link = require('react-router').Link;
 
 var App = React.createClass({
+
+  getInitialState: function(){
+    return { notifs: "off", notifications: NotificationsStore.all() };
+  },
 
   contextTypes: {
     router: React.PropTypes.object.isRequired
@@ -18,22 +25,71 @@ var App = React.createClass({
   },
 
   componentDidMount: function(){
-    SessionApiUtil.fetchCurrentUser();
+    if ( SessionStore.currentUser().id !== undefined ) {
+      NotificationApiUtil.fetchNotifications();
+    }
+    this.notifListener = NotificationsStore.addListener(this.notified);
     this.listener = SessionStore.addListener(this.forceUpdate.bind(this));
+  },
+
+  notified: function(){
+    this.setState({ notifications: NotificationsStore.all() });
+  },
+
+  componentWillReceiveProps: function(){
+    if ( SessionStore.currentUser().id !== undefined ) {
+      NotificationApiUtil.fetchNotifications();
+    }
+
   },
 
   componentWillUnmount: function(){
     this.listener.remove();
+    this.notifListener.remove();
   },
 
   handleIndex: function(){
     this.context.router.push("/index");
   },
 
+  notifsOn: function(){
+    if (this.state.notifs === "off"){
+      this.setState({ notifs: "on" });
+    } else {
+      this.setState({ notifs: "off" });
+    }
+  },
+
   render: function(){
     var include;
     var search;
     var userLink = "/" + SessionStore.currentUser().username;
+    var notifications;
+    var num_notifs;
+
+    if (this.state.notifs === "on") {
+      notifications = <NotificationIndex notifications={this.state.notifications}/>;
+    }
+
+
+    if (this.state.notifications.length !== 0){
+      num_notifs = (
+        <div id="env">
+          <h1>{this.state.notifications.length}</h1>
+          <i className="fa fa-envelope-o" aria-hidden="true" onClick={this.notifsOn}>
+            {notifications}
+          </i>
+        </div>
+      )
+    } else {
+      num_notifs = (
+        <div id="emptyEnv">
+          <i className="fa fa-envelope-o" aria-hidden="true" onClick={this.notifsOn}>
+            {notifications}
+          </i>
+        </div>
+      )
+    }
 
     if (SessionStore.isUserLoggedIn()){
       search = <Search />;
@@ -47,9 +103,12 @@ var App = React.createClass({
               {search}
 
               <Link to={userLink}>
-                <h1>{SessionStore.currentUser().first_name}</h1>
+                <h1><i className="fa fa-user" aria-hidden="true"></i></h1>
               </Link>
-              <button onClick={this.logOut}>Logout</button>
+
+              {num_notifs}
+
+              <button onClick={this.logOut}><i className="fa fa-sign-out" aria-hidden="true"></i></button>
             </nav>
 
         </div>

@@ -2,7 +2,7 @@ var CommentActions = require('../actions/comment_actions');
 
 var CommentApiUtil = {
 
-  createComment: function(data){
+  createComment: function(data, cb){
     $.ajax({
       type: "POST",
       url: "api/comments",
@@ -14,6 +14,7 @@ var CommentApiUtil = {
       },
       success: function(comment){
         CommentActions.receiveComment(comment);
+        cb && cb();
       },
       error: function(error){
       }

@@ -1,5 +1,7 @@
 var React = require('react');
 var CommentApiUtil = require('../util/comment_api_util');
+var SessionStore = require('../stores/session');
+var NotificationApiUtil = require('../util/notification_api_util');
 
 var CommentForm = React.createClass({
 
@@ -18,9 +20,23 @@ var CommentForm = React.createClass({
     CommentApiUtil.createComment({
       body: this.state.body,
       image_id: this.props.image.id
-    });
+    }, this.addNotification);
 
     this.setState({ body: "" });
+  },
+
+  addNotification: function(){
+
+    if (this.props.user.id !== SessionStore.currentUser().id) {
+      NotificationApiUtil.addNotification({
+        notification: {
+          notif_type: "made a comment",
+          image_url: this.props.image.image_url,
+          notifiee_id: this.props.user.id
+        }
+      })
+    }
+
   },
 
   render: function(){

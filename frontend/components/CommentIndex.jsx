@@ -69,7 +69,7 @@ var CommentIndex = React.createClass({
 
         {load}
 
-        <CommentForm image={this.props.image}/>
+        <CommentForm image={this.props.image} user={this.props.user}/>
       </div>
     );
   }

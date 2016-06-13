@@ -7,6 +7,7 @@ var FollowApiUtil = require('../util/follow_api_util');
 var SessionStore = require('../stores/session');
 var ModalStyle = require('./ModalStyle');
 var ProfileImageIndex = require('./ProfileImageIndex');
+var NotificationApiUtil = require('../util/notification_api_util');
 
 var Modal = require("react-modal");
 
@@ -28,6 +29,8 @@ var Profile = React.createClass({
   },
 
   componentDidMount: function(){
+    NotificationApiUtil.fetchNotifications();
+
     this.username = this.props.params.username;
 
     ImageApiUtil.fetchByUser(this.username);
