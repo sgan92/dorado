@@ -7,7 +7,6 @@ var NotificationsStore = new Store(Dispatcher);
 var _notifications = {};
 
 NotificationsStore.all = function(){
-  console.log("actually here");
   return Object.keys(_notifications).map( function(id){
     return _notifications[id]
   });

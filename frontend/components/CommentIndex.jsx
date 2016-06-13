@@ -23,7 +23,6 @@ var CommentIndex = React.createClass({
   },
 
   componentWillUnmount: function(){
-    this.setState({ commentsLength: length });
     this.listener.remove();
   },
 
@@ -52,11 +51,15 @@ var CommentIndex = React.createClass({
       }.bind(this));
     } else {
       comments = this.state.comments.map( function(comment){
+
+        if (this.state.comments.length > 3){
+          load = <button onClick={this.load}>Less Comments</button>;
+        }
+
         return( <li key={comment.id}><CommentIndexItem comment={comment}  /></li>);
-      });
-      if (this.state.commentsLength > 3){
-        load = <button onClick={this.load}>Less Comments</button>;
-      }
+
+      }.bind(this));
+
     }
 
     return(
