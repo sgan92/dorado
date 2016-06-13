@@ -11,7 +11,7 @@ var ProfileImageIndex = React.createClass({
 
     images = this.props.images.map( function(image){
       return(
-          <ProfileSingleImage image={image} key={image.id} username={this.props.username}/>
+          <ProfileSingleImage image={image} key={image.id} user={this.props.user}/>
       );
     }.bind(this));
 

@@ -26,7 +26,6 @@ var CommentForm = React.createClass({
   },
 
   addNotification: function(){
-
     if (this.props.user.id !== SessionStore.currentUser().id) {
       NotificationApiUtil.addNotification({
         notification: {
