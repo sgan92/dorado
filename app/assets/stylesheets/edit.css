@@ -25,19 +25,44 @@
 
 .editProfile input[type="submit"]  {
   position: absolute;
-  top: 180px;
+  top: 380px;
   left: 130px;
   padding: 10px 20px;
 }
 
 label {
   position: absolute;
-  left: 165px;
-  top: 110px;
+  left: 200px;
+  top: 140px;
   border: 1px solid #ccc;
   padding: 10px 20px;
   font-size: 12px;
   cursor: pointer;
+}
+
+.editProfile img {
+  position: absolute;
+  height: 80px;
+  width: auto;
+  top: 120px;
+  left: 60px;
+  border-radius: 50%;
+}
+
+#preview img {
+  position: absolute;
+  top: 250px;
+  left: 30%;
+  height: 100px;
+  border-radius: 0px;
+  width: auto;
+}
+
+.editProfile h4 {
+  position: absolute;
+  font-size: 10px;
+  top: 200px;
+  left: 150px;
 }
 
 .editProfile input[type="file"]  {
@@ -46,7 +71,7 @@ label {
 
 .editProfile button {
   position: absolute;
-  top: 180px;
+  top: 380px;
   left: 230px;
   padding: 10px 20px;
 }

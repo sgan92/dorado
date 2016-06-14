@@ -53,3 +53,7 @@
   cursor: pointer;
   padding: 10px 20px;
 }
+
+#none {
+  text-align: left;
+}

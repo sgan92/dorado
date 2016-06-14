@@ -11,7 +11,7 @@ var LikeApiUtil = {
         LikeActions.receiveLike(like);
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -25,7 +25,7 @@ var LikeApiUtil = {
         LikeActions.destroyLike(like);
       },
       error: function(error){
-        debugger;
+
       }
     });
   }

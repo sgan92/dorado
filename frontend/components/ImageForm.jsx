@@ -98,6 +98,8 @@ var ImageForm = React.createClass({
         <form onSubmit={this.handleSubmit}>
         {this.imageErrors()}
 
+        <img src={this.state.photoUrl} />
+
         {loading}
 
         <label class="custom-file-upload">

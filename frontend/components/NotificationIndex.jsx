@@ -42,6 +42,11 @@ var NotificationIndex = React.createClass({
         );
       }.bind(this));
 
+    } else {
+      notifications =
+      (<li id = "none">
+        No Notifications!
+      </li>)
     }
 
     return(

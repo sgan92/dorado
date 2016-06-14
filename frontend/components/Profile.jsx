@@ -203,10 +203,18 @@ var Profile = React.createClass({
                 placeholder="Edit User Blurb"
                 />
 
+                <img src={profileImg}/>
+
                 <label>
                   <input type="file" onChange={this.picChange} />
-                  Choose File
+                  Choose New Profile Picture
                 </label>
+
+                <h4>Photo will be resized upon upload.</h4>
+
+                <div id="preview">
+                  <img src= {this.state.photoUrl} />
+                </div>
 
               <input type="submit" value="Update" />
 
