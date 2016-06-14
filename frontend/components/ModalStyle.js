@@ -9,7 +9,7 @@ module.exports = {
   content: {
     position: "absolute",
     width: 400,
-    height: 200,
+    height: 400,
     top: '30%',
     left: '40%',
     opacity: '0',

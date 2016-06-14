@@ -11,7 +11,7 @@ var FollowApiUtil = {
         cb && cb();
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -25,7 +25,7 @@ var FollowApiUtil = {
         FollowActions.unfollow(follow);
       },
       error: function(error){
-        debugger;
+
       }
     });
   }

@@ -11,7 +11,7 @@ var ImageApiUtil = {
         ImageActions.receiveAllImages(images);
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -35,12 +35,11 @@ var ImageApiUtil = {
       processData: false,
       data: image_data,
       success: function(image){
-        debugger;
         ImageActions.receiveImage(image);
         cb && cb();
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -54,7 +53,7 @@ var ImageApiUtil = {
         ImageActions.removeImage(image);
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -69,7 +68,7 @@ var ImageApiUtil = {
         cb && cb();
       },
       error: function(error){
-        debugger;
+
       }
     });
   }

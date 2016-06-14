@@ -37,7 +37,7 @@ var UserApiUtil = {
         cb && cb();
       },
       error: function(error){
-        debugger;
+
       }
     });
   },
@@ -49,7 +49,7 @@ var UserApiUtil = {
       success: function(users){
         SessionActions.receiveUsers(users);
       }, error: function(error){
-        debugger;
+
       }
     });
   },
@@ -64,7 +64,7 @@ var UserApiUtil = {
         cb && cb();
       },
       error: function(error){
-        debugger;
+
       }
     });
   }
