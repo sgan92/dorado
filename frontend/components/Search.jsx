@@ -57,12 +57,12 @@ var Search = React.createClass({
 
       if (this.state.searching !== "" ){
         return (
-          <li key={userId}>
+          <Link to= {userLink} onClick={this.handleClick} key={userId} >
+          <li >
             <img src={userPhoto} />
-            <Link to= {userLink} onClick={this.handleClick} >
-              {username}
-            </Link>
+            {username}
           </li>
+          </Link>
         );
       } else {
         return "";
