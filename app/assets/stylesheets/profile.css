@@ -5,7 +5,7 @@
   left: 20%;
   height: 100%;
   padding-right: 100%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .profileInfo {
@@ -64,7 +64,6 @@
   float: left;
   margin-top: 50px;
   width: 1020px;
-  height: 100%;
 }
 
 .userImages li {
@@ -98,6 +97,7 @@
   background: black;
   text-align: center;
   transition: visibility 0s, opacity 0.3s linear;
+
 }
 
 .userImages li h3:hover{
