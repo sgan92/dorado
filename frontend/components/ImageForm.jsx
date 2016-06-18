@@ -13,29 +13,16 @@ var ImageForm = React.createClass({
     return { blurb: "", photoUrl: null, photoFile: null, errors: "", load: null };
   },
 
-  componentDidMount: function(){
-    this.listener = ErrorStore.addListener(this.moreErrors);
-  },
-
-  moreErrors: function(){
-    this.setState({errors: ErrorStore.formErrors("image")});
-  },
-
-  componentWillUnmount: function(){
-    this.listener.remove();
-  },
-
   blurbChange: function(event){
     var newBlurb = event.target.value;
     this.setState({ blurb: newBlurb });
   },
 
   updateFile: function(e){
-    this.setState({ errors: "" });
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
     fileReader.onloadend = function () {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
+      this.setState({ photoFile: file, photoUrl: fileReader.result, errors: "", load: false });
     }.bind(this);
 
     if(file){
@@ -44,25 +31,21 @@ var ImageForm = React.createClass({
   },
 
 
-  imageErrors: function(cb) {
+  imageErrors: function() {
     if (this.state.photoFile === null){
       this.setState({ errors: "No File Was Selected." });
-    } else {
-      this.setState({ errors: "" });
-      cb();
     }
   },
 
   handleSubmit: function(click){
     click.preventDefault();
-    this.imageErrors( function(){
-      var formData = new FormData ();
-      formData.append("image[photo]", this.state.photoFile);
-      formData.append("image[image_blurb]", this.state.blurb);
-      formData.append("image[user_id]", SessionStore.currentUser().id);
-      ImageApiUtil.createImagePost(formData, this.backToIndex);
-      this.setState({ load: true });
-    });
+    this.imageErrors()
+    var formData = new FormData ();
+    formData.append("image[photo]", this.state.photoFile);
+    formData.append("image[image_blurb]", this.state.blurb);
+    formData.append("image[user_id]", SessionStore.currentUser().id);
+    ImageApiUtil.createImagePost(formData, this.backToIndex);
+    this.setState({ load: true });
   },
 
   backToIndex: function(){
@@ -72,13 +55,13 @@ var ImageForm = React.createClass({
 
   render: function () {
     var loading;
-    if (this.state.load && this.state.errors === "" ){
+    if (this.state.load && this.state.errors === ""){
       loading = (
         <div className="loading">
           <img src={window.loading} />
         </div>
       );
-    } else {
+    } else if (!this.state.loading){
       loading = (
         <div>
           <img src={this.state.photoUrl} />
@@ -94,6 +77,7 @@ var ImageForm = React.createClass({
         <form onSubmit={this.handleSubmit}>
 
         <h2>{this.state.errors}</h2>
+
 
         {loading}
 
