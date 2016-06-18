@@ -1,8 +1,6 @@
 var React = require('react');
 var SessionStore = require('../stores/session');
 var Link = require('react-router').Link;
-var ErrorStore = require('../stores/errors');
-var ErrorActions = require('../actions/error_actions');
 var ImageApiUtil = require('../util/image_api_util');
 
 var ImageForm = React.createClass({
@@ -33,6 +31,7 @@ var ImageForm = React.createClass({
   },
 
   updateFile: function(e){
+    this.setState({ errors: "" });
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
     fileReader.onloadend = function () {
@@ -45,23 +44,25 @@ var ImageForm = React.createClass({
   },
 
 
-  imageErrors: function() {
+  imageErrors: function(cb) {
     if (this.state.photoFile === null){
       this.setState({ errors: "No File Was Selected." });
     } else {
-      this.setState({ errors: null });
+      this.setState({ errors: "" });
+      cb();
     }
   },
 
   handleSubmit: function(click){
     click.preventDefault();
-    this.imageErrors();
-    var formData = new FormData ();
-    formData.append("image[photo]", this.state.photoFile);
-    formData.append("image[image_blurb]", this.state.blurb);
-    formData.append("image[user_id]", SessionStore.currentUser().id);
-    ImageApiUtil.createImagePost(formData, this.backToIndex);
-    this.setState({ load: true });
+    this.imageErrors( function(){
+      var formData = new FormData ();
+      formData.append("image[photo]", this.state.photoFile);
+      formData.append("image[image_blurb]", this.state.blurb);
+      formData.append("image[user_id]", SessionStore.currentUser().id);
+      ImageApiUtil.createImagePost(formData, this.backToIndex);
+      this.setState({ load: true });
+    });
   },
 
   backToIndex: function(){
@@ -71,8 +72,7 @@ var ImageForm = React.createClass({
 
   render: function () {
     var loading;
-    console.log(this.state.errors);
-    if (this.state.load && this.state.errors === ""){
+    if (this.state.load && this.state.errors === "" ){
       loading = (
         <div className="loading">
           <img src={window.loading} />
