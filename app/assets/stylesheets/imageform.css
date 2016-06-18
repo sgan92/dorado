@@ -12,7 +12,8 @@
 
 textarea {
   position: absolute;
-  bottom: 20%;
+  height: 40px;
+  bottom: 15%;
   left: 17%;
   margin-left: 5px;
   border-top: 1px solid #d1d1d1;
@@ -32,11 +33,18 @@ textarea {
   padding-top: 20px;
 }
 
+.form h2 {
+  font-weight: lighter;
+  position: absolute;
+  left: 34%;
+  top: 40%;
+}
+
 .form h3 {
   font-weight: lighter;
   position: absolute;
   left: 40%;
-  top: 50%;
+  top: 60%;
 }
 
 .form input{
@@ -90,11 +98,11 @@ textarea {
 }
 
 .form img {
-  width: 150px;
+  width: 120px;
   height: auto;
   position: relative;
   top: 70px;
-  left: 130px;
+  left: 140px;
 }
 
 .loading img{

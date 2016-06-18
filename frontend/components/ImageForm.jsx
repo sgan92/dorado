@@ -46,21 +46,16 @@ var ImageForm = React.createClass({
 
 
   imageErrors: function() {
-    errors = this.state.errors;
-
-    if (!errors["image"]) {
-      return "";
+    if (this.state.photoFile === null){
+      this.setState({ errors: "No File Was Selected." });
+    } else {
+      this.setState({ errors: null });
     }
-
-    var messages = errors["image"].map(function (errorMsg, i) {
-      return ( <li key={ i }>{ errorMsg }</li>);
-    });
-
-      return <ul>{ messages }</ul>;
   },
 
   handleSubmit: function(click){
     click.preventDefault();
+    this.imageErrors();
     var formData = new FormData ();
     formData.append("image[photo]", this.state.photoFile);
     formData.append("image[image_blurb]", this.state.blurb);
@@ -76,8 +71,8 @@ var ImageForm = React.createClass({
 
   render: function () {
     var loading;
-
-    if (this.state.load){
+    console.log(this.state.errors);
+    if (this.state.load && this.state.errors === ""){
       loading = (
         <div className="loading">
           <img src={window.loading} />
@@ -86,6 +81,7 @@ var ImageForm = React.createClass({
     } else {
       loading = (
         <div>
+          <img src={this.state.photoUrl} />
           <h3> Add Blurb </h3>
           <textarea rows="5" cols="40" onChange={this.blurbChange} value={this.state.blurb} placeholder="Write Your Blurb!"/>
         </div>
@@ -96,9 +92,8 @@ var ImageForm = React.createClass({
       <div className="form">
         <h1> Upload! </h1>
         <form onSubmit={this.handleSubmit}>
-        {this.imageErrors()}
 
-        <img src={this.state.photoUrl} />
+        <h2>{this.state.errors}</h2>
 
         {loading}
 
