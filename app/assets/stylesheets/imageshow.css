@@ -39,6 +39,9 @@
 #close {
   border: none;
   background: white;
+  cursor: pointer;
+  font-size: 18px;
+  
 }
 
 .Comments {
