@@ -54,8 +54,8 @@
   margin-top: -5px;
 }
 
-.Like {
-
+.Like a{
+  padding-left: 3px;
 }
 
 .Like ul{
