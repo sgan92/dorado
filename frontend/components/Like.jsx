@@ -71,9 +71,7 @@ var Like = React.createClass({
     return(
       <ul>
         <li>
-          <div onClick={this.toggleLike}>
-            <img src= {this.state.likeimg} />
-          </div>
+            <img src= {this.state.likeimg} onClick={this.toggleLike} />
         </li>
 
         <li>{this.handleLikeView()}</li>

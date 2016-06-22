@@ -6,7 +6,7 @@
 
 .ImageShow h3 {
   margin-left: -45px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: lighter;
   color: #676767;
   margin-top: -355px;
@@ -40,8 +40,9 @@
   border: none;
   background: white;
   cursor: pointer;
-  font-size: 18px;
-
+  font-size: 14px;
+  position: relative;
+  top: -50px;
 }
 
 .Comments {
@@ -60,10 +61,9 @@
 
 .Like ul{
   padding-top: 10px;
-  position: absolute;
-  top: 10%;
-  left: 60%;
+  position: relative;
   font-size: 10px;
+  left: -5%;
 }
 
 .Like img{
@@ -71,6 +71,6 @@
   height: 20px;
   position: absolute;
   left: 155%;
-  top: 25%;
+  top: 20%;
   cursor: pointer;
 }
