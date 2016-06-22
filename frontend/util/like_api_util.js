@@ -2,13 +2,14 @@ var LikeActions = require('../actions/like_actions');
 
 var LikeApiUtil = {
 
-  createLike: function(image_id){
+  createLike: function(image_id, cb){
     $.ajax({
       type: "POST",
       url: "api/like",
       data: { like: {image_id: image_id}},
       success: function(like){
         LikeActions.receiveLike(like);
+        cb && cb();
       },
       error: function(error){
 

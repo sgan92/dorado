@@ -1,6 +1,7 @@
 var React = require('react');
 var ImageStore = require('../stores/images');
 var LikeApiUtil = require('../util/like_api_util');
+var NotificationApiUtil = require('../util/notification_api_util');
 var Link = require('react-router').Link;
 
 var Like = React.createClass({
@@ -45,9 +46,22 @@ var Like = React.createClass({
       LikeApiUtil.destroyLike(this.props.post.id);
 
     } else {
-      LikeApiUtil.createLike(this.props.post.id);
+      LikeApiUtil.createLike(this.props.post.id, this.addNotification);
     }
 
+  },
+
+  addNotification: function(){
+    var likeLength = this.props.post.likes.length - 1;
+    if (this.props.post.likes[likeLength].user_id !== this.state.currentUser.id) {
+      NotificationApiUtil.addNotification({
+        notification: {
+          notif_type: "liked your photo",
+          image_url: this.props.post.url,
+          notifiee_id: this.props.post.likes[likeLength].user_id
+        }
+      })
+    }
   },
 
   handleLikeView: function(){
