@@ -11,7 +11,7 @@ module.exports = {
     width: 650,
     height: 350,
     top: '20%',
-    left: '20%',
+    left: '25%',
     opacity: '1',
     transition: 'opacity 1s',
     overflow: 'hidden'
