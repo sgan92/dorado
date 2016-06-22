@@ -2,7 +2,7 @@
 
 <h2>Heroku</h2>
 
-[dorado](http://dorado.herokuapp.com/)
+[dorado](http://dorado.space/)
 
 Dorado is a full-stack web application that was modeled after [Instagram](https://www.instagram.com/?hl=en). It utilizes PostgreSQL, Ruby on Rails, React.js, and Flux. By using ajax requests, dorado is a single page app with all content delivered on a static page.
 
@@ -18,7 +18,7 @@ Dorado's main feature is uploading an image. This image is stored in a table, wi
 
 These images are uploaded via paperclip and hosted on amazon web services. During upload, three different versions of the image is uploaded at different sizes, so that when rendering, the optimal size can be chosen.
 
-These images can then be commented/liked. To keep the dashboard at a manageable size, if the number of comments exceed 3, the user can toggle to see all comments, or only the most recent 3. If another user comments on an image, a notification will pop up that shows the image the comment was left on as well as a link to the user who left the comment. (Unless that user is yourself.)
+These images can then be commented/liked. To keep the dashboard at a manageable size, if the number of comments exceed 3, the user can toggle to see all comments, or only the most recent 3. If another user comments on an image/likes the image, a notification will pop up that shows the image the comment was left on as well as a link to the user who left the comment. (Unless that user is yourself.) This is done through a notifications table, which deletes the notification as soon as the user clicks on the notification. The notification will bring the user to the user who commented/liked the image.
 
 ![alt text](http://i.imgur.com/VbxsfCg.png)
 
