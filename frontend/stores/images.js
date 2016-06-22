@@ -43,7 +43,11 @@ ImageStore.unLike = function(imageId, username){
 };
 
 ImageStore.allLikes = function(imageId){
-   _likes = _posts[imageId].likeusers || {};
+  if (_posts[imageId]){
+    _likes = _posts[imageId].likeusers || {};
+  } else {
+    _likes = _user.images.imageId
+  }
    return _likes;
 };
 
@@ -62,6 +66,11 @@ ImageStore.user = function(){
 
 ImageStore.profileImages = function(){
   _user.images = _user.images || [];
+
+  _user.images.forEach( function(image){
+    _posts[image.id] = image;
+  });
+
   return _user.images;
 };
 

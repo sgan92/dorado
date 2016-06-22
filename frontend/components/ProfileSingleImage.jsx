@@ -3,10 +3,8 @@ var Modal = require("react-modal");
 var ModalStyle = require('./ModalStyle');
 var CommentIndex = require('./CommentIndex');
 var CommentApiUtil = require('../util/comment_api_util');
-var SessionStore = require('../stores/session');
-var ImageApiUtil = require('../util/image_api_util');
-var ImageStore = require('../stores/images');
 var ImageModalStyle = require('./ImageModalStyle');
+var Like = require('./Like');
 
 var ProfileSingleImage = React.createClass({
   getInitialState: function(){
@@ -45,6 +43,10 @@ var ProfileSingleImage = React.createClass({
         <div className="ImageShow">
           <img src={this.props.image.image_url}/>
           <h3>{this.props.image.username} {this.props.image.image_blurb}</h3>
+
+          <div className= "Like">
+          <Like post={this.props.image} currentUser={this.props.currentUser}/>
+          </div>
 
           <div className="Comments">
             <CommentIndex image={this.props.image} user={this.props.user}/>

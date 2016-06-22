@@ -41,7 +41,7 @@
   background: white;
   cursor: pointer;
   font-size: 18px;
-  
+
 }
 
 .Comments {
@@ -49,6 +49,28 @@
   padding-right: 300px;
   width: 300px;
   height: 315px;
+  padding-top: 20px;
   margin-left: -50px;
   margin-top: -5px;
+}
+
+.Like {
+
+}
+
+.Like ul{
+  padding-top: 10px;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  font-size: 10px;
+}
+
+.Like img{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 155%;
+  top: 25%;
+  cursor: pointer;
 }

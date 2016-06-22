@@ -1,11 +1,11 @@
 var React = require('react');
+var Like = require('./Like');
 var ImageApiUtil = require('../util/image_api_util');
 var ImageStore = require('../stores/images');
 var SessionApiUtil = require('../util/session_api_util');
 var LikeApiUtil = require('../util/like_api_util');
 var SessionStore = require('../stores/session');
 var CommentIndex = require('./CommentIndex');
-
 var Link = require('react-router').Link;
 
 var ImageIndexItem = React.createClass({
@@ -13,66 +13,13 @@ var ImageIndexItem = React.createClass({
   getInitialState: function(){
     return {
       currentUser: SessionStore.currentUser(),
-      likes: ImageStore.allLikes(this.props.post.id),
-      likeimg: "",
       modalOpen: false
     };
   },
 
-  componentDidMount: function(){
-    this.listener = ImageStore.addListener(this.likeChange);
-
-    if ( ImageStore.userLiked(this.state.currentUser, this.props.post.id) ) {
-      this.setState({ likeimg: window.like });
-    } else {
-      this.setState({ likeimg: window.unlike });
-    }
-
-  },
-
-  likeChange: function(){
-
-    if ( ImageStore.userLiked(this.state.currentUser, this.props.post.id) ) {
-      this.setState({ likeimg: window.like });
-    } else {
-      this.setState({ likeimg: window.unlike });
-    }
-
-    this.setState({ likes: ImageStore.allLikes(this.props.post.id)});
-  },
-
-
-  componentWillUnmount: function(){
-    this.listener.remove();
-  },
-
-
   handleDelete: function(e){
     e.preventDefault();
     ImageApiUtil.deleteImagePost(this.props.post.id);
-  },
-
-  toggleLike: function(){
-    if ( ImageStore.userLiked(this.state.currentUser, this.props.post.id) ){
-      LikeApiUtil.destroyLike(this.props.post.id);
-
-    } else {
-      LikeApiUtil.createLike(this.props.post.id);
-    }
-
-  },
-
-  handleLikeView: function(){
-    var view;
-
-    var length = Object.keys(this.state.likes).length;
-
-    if ( length > 5){
-      view = length;
-    } else {
-      view = Object.keys(this.state.likes).join(",   ");
-    }
-    return view;
   },
 
   handleShare: function(e){
@@ -111,15 +58,7 @@ var ImageIndexItem = React.createClass({
         </div>
 
         <div id="likecontainer">
-          <ul>
-            <li>
-              <div onClick={this.toggleLike}>
-                <img src= {this.state.likeimg} />
-              </div>
-            </li>
-
-            <li>{this.handleLikeView()}</li>
-          </ul>
+          <Like post={this.props.post} currentUser={this.state.currentUser}/>
         </div>
 
         <div id="blurb" >
@@ -132,6 +71,7 @@ var ImageIndexItem = React.createClass({
       </div>
     );
   }
+
 });
 
 module.exports = ImageIndexItem;
