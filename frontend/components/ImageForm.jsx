@@ -66,7 +66,10 @@ var ImageForm = React.createClass({
         <div>
           <img src={this.state.photoUrl} />
           <h3> Add Blurb </h3>
-          <textarea rows="5" cols="40" onChange={this.blurbChange} value={this.state.blurb} placeholder="Write Your Blurb!"/>
+          <textarea rows="5" cols="40"
+            onChange={this.blurbChange}
+            value={this.state.blurb}
+            placeholder="Write Your Blurb!"/>
         </div>
       );
     }
