@@ -6,6 +6,7 @@ class Api::LikesController < ApplicationController
     @like.user_id = current_user.id
 
     if @like.save
+      Pusher.trigger('likes_'+ @like.image_id.to_s, 'image_liked', {})
       render 'api/like/show'
     end
 

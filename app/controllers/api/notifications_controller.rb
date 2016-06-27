@@ -9,6 +9,7 @@ def create
   @notification.notifier_id = current_user.id
 
   if @notification.save!
+    Pusher.trigger('notifications_'+ @notification.notifiee_id.to_s, 'notify', {})
     render 'api/notifications/show'
   end
 

@@ -9,6 +9,7 @@ class Api::CommentsController < ApplicationController
     @comment[:user_id] = current_user.id
 
     if @comment.save
+      Pusher.trigger('comments_'+ @comment.image_id.to_s, 'comment_published', {})
       render 'api/comments/show'
     else
       render(

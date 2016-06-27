@@ -1,5 +1,6 @@
 var React = require('react');
 var ImageStore = require('../stores/images');
+// var ImageApiUtil = require('../util/image_api_util');
 var LikeApiUtil = require('../util/like_api_util');
 var NotificationApiUtil = require('../util/notification_api_util');
 var Link = require('react-router').Link;
@@ -22,6 +23,15 @@ var Like = React.createClass({
     } else {
       this.setState({ likeimg: window.unlike });
     }
+
+    // var pusher = new Pusher('bb66e1752e6b946ffd95', {
+    //   encrypted: true
+    // });
+    //
+    // var channel = pusher.subscribe('likes_' + this.props.post.id);
+    // channel.bind('image_liked', function(data) {
+    //   ImageApiUtil.fetchImage(this.props.post.id);
+    // }.bind(this));
 
   },
 

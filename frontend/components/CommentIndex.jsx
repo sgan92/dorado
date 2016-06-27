@@ -16,6 +16,16 @@ var CommentIndex = React.createClass({
   componentDidMount: function(){
     CommentApiUtil.fetchComments(this.props.image.id);
     this.listener = CommentStore.addListener(this.commentChange);
+
+    var pusher = new Pusher('bb66e1752e6b946ffd95', {
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('comments_' + this.props.image.id);
+    channel.bind('comment_published', function(data) {
+      CommentApiUtil.fetchComments(this.props.image.id);
+    }.bind(this));
+
   },
 
   commentChange: function(){
