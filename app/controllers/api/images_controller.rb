@@ -23,6 +23,7 @@ class Api::ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     if @image.save
+      Pusher.trigger('images', 'image_published', {})
       render 'api/images/show'
     else
       render(
@@ -36,6 +37,7 @@ class Api::ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
+    Pusher.trigger('images', 'image_deleted', {})
     @image.destroy
     render 'api/images/show'
   end
