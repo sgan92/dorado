@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
     user_ids = []
 
-    users = User..joins(:images).group("id").limit(5).order("RANDOM()")
+    users = User.joins(:images).group("id").limit(5).order("RANDOM()")
 
     followings = {}
     followings[current_user.id] = true
