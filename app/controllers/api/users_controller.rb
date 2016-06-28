@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
     user_ids = []
 
-    users = User.limit(5).order("RANDOM()")
+    users = User..joins(:images).group("id").limit(5).order("RANDOM()")
 
     followings = {}
     followings[current_user.id] = true
@@ -27,10 +27,7 @@ class Api::UsersController < ApplicationController
   def search
     if params[:search].present?
       @users =
-      User.where("LOWER(username) ~ LOWER(?)", params[:search])
-      .joins(:images)
-      .group("id")
-      .limit(5)
+      User.where("LOWER(username) ~ LOWER(?)", params[:search]).limit(5)
     else
       @users = User.none
     end
