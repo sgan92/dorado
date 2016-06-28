@@ -27,18 +27,20 @@ var App = React.createClass({
   componentDidMount: function(){
     if ( SessionStore.currentUser().id !== undefined ) {
       NotificationApiUtil.fetchNotifications();
+
+      this.pusher = new Pusher('bb66e1752e6b946ffd95', {
+        encrypted: true
+      });
+
+      var channel = this.pusher.subscribe('notifications_' + SessionStore.currentUser().id);
+      channel.bind('notify', function(data) {
+        NotificationApiUtil.fetchNotifications();
+      }.bind(this));
+
     }
     this.notifListener = NotificationsStore.addListener(this.notified);
     this.listener = SessionStore.addListener(this.forceUpdate.bind(this));
 
-    this.pusher = new Pusher('bb66e1752e6b946ffd95', {
-      encrypted: true
-    });
-
-    var channel = this.pusher.subscribe('notifications_' + SessionStore.currentUser().id);
-    channel.bind('notify', function(data) {
-      NotificationApiUtil.fetchNotifications();
-    }.bind(this));
 
   },
 
