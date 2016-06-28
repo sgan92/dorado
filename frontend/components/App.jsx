@@ -31,11 +31,11 @@ var App = React.createClass({
     this.notifListener = NotificationsStore.addListener(this.notified);
     this.listener = SessionStore.addListener(this.forceUpdate.bind(this));
 
-    var pusher = new Pusher('bb66e1752e6b946ffd95', {
+    this.pusher = new Pusher('bb66e1752e6b946ffd95', {
       encrypted: true
     });
 
-    var channel = pusher.subscribe('notifications_' + SessionStore.currentUser().id);
+    var channel = this.pusher.subscribe('notifications_' + SessionStore.currentUser().id);
     channel.bind('notify', function(data) {
       NotificationApiUtil.fetchNotifications();
     }.bind(this));
@@ -56,6 +56,8 @@ var App = React.createClass({
   componentWillUnmount: function(){
     this.listener.remove();
     this.notifListener.remove();
+    this.pusher.unsubscribe('notifications_' + SessionStore.currentUser().id);
+    this.pusher.disconnect();
   },
 
   handleIndex: function(){
