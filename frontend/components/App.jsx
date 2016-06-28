@@ -28,11 +28,11 @@ var App = React.createClass({
     if ( SessionStore.currentUser().id !== undefined ) {
       NotificationApiUtil.fetchNotifications();
 
-      this.pusher = new Pusher('bb66e1752e6b946ffd95', {
+      this.mainPusher = new Pusher('bb66e1752e6b946ffd95', {
         encrypted: true
       });
 
-      var channel = this.pusher.subscribe('notifications_' + SessionStore.currentUser().id);
+      var channel = this.mainPusher.subscribe('notifications_' + SessionStore.currentUser().id);
       channel.bind('notify', function(data) {
         NotificationApiUtil.fetchNotifications();
       }.bind(this));
@@ -58,8 +58,8 @@ var App = React.createClass({
   componentWillUnmount: function(){
     this.listener.remove();
     this.notifListener.remove();
-    this.pusher.unsubscribe('notifications_' + SessionStore.currentUser().id);
-    this.pusher.disconnect();
+    this.mainPusher.unsubscribe('notifications_' + SessionStore.currentUser().id);
+    this.mainPusher.disconnect();
   },
 
   handleIndex: function(){
