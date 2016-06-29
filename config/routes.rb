@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
+
+
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create, :update]
     resources :images, only: [:create, :show, :destroy, :index]
@@ -24,4 +26,5 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'api/sessions#create'
 
+  get "/*path", to: "static_pages#root"
 end
