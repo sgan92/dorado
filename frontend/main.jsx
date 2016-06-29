@@ -5,7 +5,7 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
+var browserHistory = ReactRouter.browserHistory;
 
 var SessionStore = require('./stores/session');
 var SessionApiUtil = require('./util/session_api_util');
@@ -73,5 +73,5 @@ var routes = (
 document.addEventListener("DOMContentLoaded", function(){
   Modal.setAppElement(document.body);
   var content = document.getElementById("content");
-  ReactDOM.render(<Router history={hashHistory} routes={routes}/>, content);
+  ReactDOM.render(<Router history={browserHistory} routes={routes}/>, content);
 });
