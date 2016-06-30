@@ -19,11 +19,11 @@ var ImageIndex = React.createClass({
     ImageApiUtil.fetchAllImages(page);
     this.isBottom();
     this.listener = ImageStore.addListener(this.photosAdded);
-    this.imageIndexPusher = new Pusher('bb66e1752e6b946ffd95', {
+    window.pusher = new Pusher('bb66e1752e6b946ffd95', {
       encrypted: true
     });
 
-    var channel = this.imageIndexPusher.subscribe('images');
+    var channel = window.pusher.subscribe('images');
     channel.bind('image_published', function(data) {
       ImageApiUtil.fetchAllImages(page);
     });
@@ -52,8 +52,7 @@ var ImageIndex = React.createClass({
 
   componentWillUnmount: function(){
     this.listener.remove();
-    this.imageIndexPusher.unsubscribe("images");
-    this.imageIndexPusher.disconnect();
+    window.pusher.unsubscribe("images");
   },
 
   render: function(){

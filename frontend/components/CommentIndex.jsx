@@ -17,11 +17,7 @@ var CommentIndex = React.createClass({
     CommentApiUtil.fetchComments(this.props.image.id);
     this.listener = CommentStore.addListener(this.commentChange);
 
-    this.commentPusher = new Pusher('bb66e1752e6b946ffd95', {
-      encrypted: true
-    });
-
-    var channel = this.commentPusher.subscribe('comments_' + this.props.image.id);
+    var channel = window.pusher.subscribe('comments_' + this.props.image.id);
     channel.bind('comment_published', function(data) {
       CommentApiUtil.fetchComments(this.props.image.id);
     }.bind(this));
@@ -34,8 +30,7 @@ var CommentIndex = React.createClass({
 
   componentWillUnmount: function(){
     this.listener.remove();
-    this.commentPusher.unsubscribe('comments_' + this.props.image.id);
-    this.commentPusher.disconnect();
+    window.pusher.unsubscribe('comments_' + this.props.image.id);
   },
 
   load: function(e){
