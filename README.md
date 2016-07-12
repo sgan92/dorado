@@ -16,7 +16,7 @@ For convenience, a user can sign into Dorado via Twitter. By using OmniAuth, the
 
 Dorado's main feature is uploading an image. This image is stored in a table, with whatever comment the poster wishes to make, as well as the time it was created so that a time stamp can be rendered.
 
-These images are uploaded via paperclip and hosted on amazon web services. During upload, three different versions of the image is uploaded at different sizes, so that when rendering, the optimal size can be chosen.
+These images are uploaded via paperclip and hosted on amazon web services. During upload, three different versions of the image is uploaded at different sizes, so that when rendering, the optimal size can be chosen. This image upload along with commenting is updated real time across users through the usage of web sockets.
 
 These images can then be commented/liked. To keep the dashboard at a manageable size, if the number of comments exceed 3, the user can toggle to see all comments, or only the most recent 3. If another user comments on an image/likes the image, a notification will pop up that shows the image the comment was left on as well as a link to the user who left the comment. (Unless that user is yourself.) This is done through a notifications table, which deletes the notification as soon as the user clicks on the notification. The notification will bring the user to the user who commented/liked the image.
 
